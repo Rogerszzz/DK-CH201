@@ -46,8 +46,8 @@
 #include "chirp_smartsonic.h"
 
 /* Bit flags used in main loop to check for completion of sensor I/O.  */
-#define DATA_READY_FLAG		(1 << 0)
-#define IQ_READY_FLAG		(1 << 1)
+#define DATA_READY_FLAG		(1 << 0) // DATA_READY_FLAG = 1
+#define IQ_READY_FLAG		(1 << 1) // IQ_READY_FLAG = 2
 
 /* chirp_data_t - Structure to hold measurement data for one sensor
  *   This structure is used to hold the data from one measurement cycle from 
@@ -206,7 +206,7 @@ int main(void) {
 	for (dev_num = 0; dev_num < num_ports; dev_num++) {
 		ch_dev_t *dev_ptr = &(chirp_devices[dev_num]);	// init struct in array
 
-		/* Init device descriptor 
+		/* Init device descriptor  
 		 *   Note that this assumes all sensors will use the same sensor 
 		 *   firmware.  The CHIRP_SENSOR_FW_INIT_FUNC symbol is defined in 
 		 *   app_config.h and is used for all devices.
@@ -402,6 +402,8 @@ int main(void) {
 		if (taskflags & DATA_READY_FLAG) {
 
 			/* All sensors have interrupted - handle sensor data */
+			// &= 按位与运算后赋值
+			// ~ 按位取反
 			taskflags &= ~DATA_READY_FLAG;		// clear flag
 			handle_data_ready(grp_ptr);			// read and display measurement
 		}
