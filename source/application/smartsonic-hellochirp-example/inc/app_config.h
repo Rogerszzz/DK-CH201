@@ -133,7 +133,7 @@
  *   set this period as the sensor's internal sample interval.
  */
 
-#define	MEASUREMENT_INTERVAL_MS (1000)
+#define	MEASUREMENT_INTERVAL_MS (770)
 
 
 /*==================  Application Storage for Sensor Data ====================*/

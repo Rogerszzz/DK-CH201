@@ -44,6 +44,9 @@
 #include "app_version.h"
 #include "chirp_bsp.h"			// board support package function definitions
 #include "chirp_smartsonic.h"
+#include "C:\Users\RuozhouTian\Desktop\DK-CH201\source\board\sam\drivers\rtc\rtc.h"
+#include "C:\Users\RuozhouTian\Desktop\DK-CH201\source\utils\inc\time.h"
+#include "C:\Users\RuozhouTian\Desktop\DK-CH201\source\board\sam\drivers\tc\tc.h"
 
 /* Bit flags used in main loop to check for completion of sensor I/O.  */
 #define DATA_READY_FLAG		(1 << 0) // DATA_READY_FLAG = 1
@@ -162,8 +165,10 @@ int main(void) {
 	uint8_t chirp_error = 0;
 	uint8_t num_ports;
 	uint8_t dev_num;
+	
 
-	/* Initialize board hardware functions 
+	/* 
+	 *	 Initialize board hardware functions 
 	 *   This call to the board support package (BSP) performs all necessary 
 	 *   hardware initialization for the application to run on this board.
 	 *   This includes setting up memory regions, initializing clocks and 
@@ -183,7 +188,7 @@ int main(void) {
 	printf("    SonicLib version: %u.%u.%u\n", SONICLIB_VER_MAJOR, 
 										  SONICLIB_VER_MINOR, SONICLIB_VER_REV);
 	printf("\n");
-
+	printf("\n");
 
 	/* Get the number of (possible) sensor devices on the board
 	 *   Set by the BSP during chbsp_board_init() 
@@ -373,6 +378,9 @@ int main(void) {
 	}
 
 	printf("Starting measurements\n");
+	//uint64_t start_time;
+	//start_time = time_get_in_us();
+	uint64_t pre_time;
 
 	/* Enter main loop 
 	 *   This is an infinite loop that will run for the remainder of the system 
@@ -392,6 +400,7 @@ int main(void) {
 		 * never turn off the main clock, so that interrupts can still wake 
 		 * the processor.
 		 */
+		printf("\n");
 		if (taskflags==0) {
 			chbsp_proc_sleep();			// put processor in low-power sleep mode
 
@@ -406,6 +415,11 @@ int main(void) {
 			// ~ 按位取反
 			taskflags &= ~DATA_READY_FLAG;		// clear flag
 			handle_data_ready(grp_ptr);			// read and display measurement
+			uint64_t cur_time = time_get_in_us();			
+			double time = (cur_time - pre_time)/1000000.0;
+			pre_time = cur_time;
+			
+			printf("Time pass %.6f s", time);
 		}
 
 #if (defined(READ_IQ_DATA) && defined(READ_IQ_NONBLOCKING))
@@ -420,13 +434,13 @@ int main(void) {
 
 			/* All non-blocking I/Q readouts have completed */
 			taskflags &= ~IQ_READY_FLAG;		// clear flag
+			SystemCoreClockUpdate(void);
 			handle_iq_data_done(grp_ptr);		// display I/Q data
 		}
 #endif
 
 	}	// end  while(1) main loop
 }
-
 
 /*
  * periodic_timer_callback() - periodic timer callback routine

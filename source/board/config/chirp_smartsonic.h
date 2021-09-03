@@ -1,5 +1,5 @@
 /*
-Copyright © 2016-2019, Chirp Microsystems.  All rights reserved.
+Copyright ?2016-2019, Chirp Microsystems.  All rights reserved.
 All rights reserved.
 
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND

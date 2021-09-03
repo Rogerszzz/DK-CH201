@@ -146,6 +146,10 @@ Discarded input sections
  .text          0x00000000        0x0 source/application/smartsonic-hellochirp-example/main.o
  .data          0x00000000        0x0 source/application/smartsonic-hellochirp-example/main.o
  .bss           0x00000000        0x0 source/application/smartsonic-hellochirp-example/main.o
+ .bss.cpu_irq_critical_section_counter
+                0x00000000        0x4 source/application/smartsonic-hellochirp-example/main.o
+ .bss.cpu_irq_prev_interrupt_state
+                0x00000000        0x1 source/application/smartsonic-hellochirp-example/main.o
  .text          0x00000000        0x0 source/utils/src/time.o
  .data          0x00000000        0x0 source/utils/src/time.o
  .bss           0x00000000        0x0 source/utils/src/time.o
@@ -1027,7 +1031,7 @@ Discarded input sections
                 0x00000000       0x28 source/drivers/chirpmicro/src/ch101_gpr_sr_open.o
  .debug_ranges  0x00000000       0x18 source/drivers/chirpmicro/src/ch101_gpr_sr_open.o
  .debug_line    0x00000000      0x37c source/drivers/chirpmicro/src/ch101_gpr_sr_open.o
- .debug_str     0x00000000     0x1309 source/drivers/chirpmicro/src/ch101_gpr_sr_open.o
+ .debug_str     0x00000000     0x12e3 source/drivers/chirpmicro/src/ch101_gpr_sr_open.o
  .comment       0x00000000       0x5a source/drivers/chirpmicro/src/ch101_gpr_sr_open.o
  .debug_frame   0x00000000       0x58 source/drivers/chirpmicro/src/ch101_gpr_sr_open.o
  .ARM.attributes
@@ -1057,7 +1061,7 @@ Discarded input sections
                 0x00000000       0x30 source/drivers/chirpmicro/src/ch101_gpr_sr_open_fw.o
  .debug_ranges  0x00000000       0x20 source/drivers/chirpmicro/src/ch101_gpr_sr_open_fw.o
  .debug_line    0x00000000      0x344 source/drivers/chirpmicro/src/ch101_gpr_sr_open_fw.o
- .debug_str     0x00000000      0x8e8 source/drivers/chirpmicro/src/ch101_gpr_sr_open_fw.o
+ .debug_str     0x00000000      0x8c2 source/drivers/chirpmicro/src/ch101_gpr_sr_open_fw.o
  .comment       0x00000000       0x5a source/drivers/chirpmicro/src/ch101_gpr_sr_open_fw.o
  .debug_frame   0x00000000       0x70 source/drivers/chirpmicro/src/ch101_gpr_sr_open_fw.o
  .ARM.attributes
@@ -1084,7 +1088,7 @@ Discarded input sections
                 0x00000000       0x28 source/drivers/chirpmicro/src/ch101_gpr_open.o
  .debug_ranges  0x00000000       0x18 source/drivers/chirpmicro/src/ch101_gpr_open.o
  .debug_line    0x00000000      0x379 source/drivers/chirpmicro/src/ch101_gpr_open.o
- .debug_str     0x00000000     0x12fd source/drivers/chirpmicro/src/ch101_gpr_open.o
+ .debug_str     0x00000000     0x12d7 source/drivers/chirpmicro/src/ch101_gpr_open.o
  .comment       0x00000000       0x5a source/drivers/chirpmicro/src/ch101_gpr_open.o
  .debug_frame   0x00000000       0x58 source/drivers/chirpmicro/src/ch101_gpr_open.o
  .ARM.attributes
@@ -1114,7 +1118,7 @@ Discarded input sections
                 0x00000000       0x30 source/drivers/chirpmicro/src/ch101_gpr_open_fw.o
  .debug_ranges  0x00000000       0x20 source/drivers/chirpmicro/src/ch101_gpr_open_fw.o
  .debug_line    0x00000000      0x341 source/drivers/chirpmicro/src/ch101_gpr_open_fw.o
- .debug_str     0x00000000      0x8d6 source/drivers/chirpmicro/src/ch101_gpr_open_fw.o
+ .debug_str     0x00000000      0x8b0 source/drivers/chirpmicro/src/ch101_gpr_open_fw.o
  .comment       0x00000000       0x5a source/drivers/chirpmicro/src/ch101_gpr_open_fw.o
  .debug_frame   0x00000000       0x70 source/drivers/chirpmicro/src/ch101_gpr_open_fw.o
  .ARM.attributes
@@ -1608,7 +1612,7 @@ LOAD c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin
                 0x00003000                __stack_size__ = DEFINED (__stack_size__)?__stack_size__:0x3000
                 0x20027ffc                __ram_end__ = ((ORIGIN (ram) + LENGTH (ram)) - 0x4)
 
-.text           0x00400000     0xcf90
+.text           0x00400000     0xd018
                 0x00400000                . = ALIGN (0x4)
                 0x00400000                _sfixed = .
  *(.vectors .vectors.*)
@@ -1616,1320 +1620,1321 @@ LOAD c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin
                 0x00400000                exception_table
  *(.text .text.* .gnu.linkonce.t.*)
  .text          0x00400148       0x6c c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/crtbegin.o
- .text.main     0x004001b4      0x3d0 source/application/smartsonic-hellochirp-example/main.o
-                0x004001b4                main
+ *fill*         0x004001b4        0x4 
+ .text.main     0x004001b8      0x440 source/application/smartsonic-hellochirp-example/main.o
+                0x004001b8                main
  .text.periodic_timer_callback
-                0x00400584       0x24 source/application/smartsonic-hellochirp-example/main.o
-                0x00400584                periodic_timer_callback
+                0x004005f8       0x24 source/application/smartsonic-hellochirp-example/main.o
+                0x004005f8                periodic_timer_callback
  .text.sensor_int_callback
-                0x004005a8       0x94 source/application/smartsonic-hellochirp-example/main.o
+                0x0040061c       0x94 source/application/smartsonic-hellochirp-example/main.o
  .text.io_complete_callback
-                0x0040063c       0x24 source/application/smartsonic-hellochirp-example/main.o
+                0x004006b0       0x24 source/application/smartsonic-hellochirp-example/main.o
  .text.display_config_info
-                0x00400660      0x1d8 source/application/smartsonic-hellochirp-example/main.o
+                0x004006d4      0x1d8 source/application/smartsonic-hellochirp-example/main.o
  .text.handle_data_ready
-                0x00400838      0x160 source/application/smartsonic-hellochirp-example/main.o
+                0x004008ac      0x160 source/application/smartsonic-hellochirp-example/main.o
  .text.time_get_in_us
-                0x00400998       0x18 source/utils/src/time.o
-                0x00400998                time_get_in_us
+                0x00400a0c       0x18 source/utils/src/time.o
+                0x00400a0c                time_get_in_us
  .text.osc_enable
-                0x004009b0       0x88 source/board/common/services/clock/samg/sysclk.o
+                0x00400a24       0x88 source/board/common/services/clock/samg/sysclk.o
  .text.osc_is_ready
-                0x00400a38       0x70 source/board/common/services/clock/samg/sysclk.o
+                0x00400aac       0x70 source/board/common/services/clock/samg/sysclk.o
  .text.osc_get_rate
-                0x00400aa8       0x74 source/board/common/services/clock/samg/sysclk.o
+                0x00400b1c       0x74 source/board/common/services/clock/samg/sysclk.o
  .text.osc_wait_ready
-                0x00400b1c       0x2c source/board/common/services/clock/samg/sysclk.o
+                0x00400b90       0x2c source/board/common/services/clock/samg/sysclk.o
  .text.pll_config_init
-                0x00400b48       0x54 source/board/common/services/clock/samg/sysclk.o
+                0x00400bbc       0x54 source/board/common/services/clock/samg/sysclk.o
  .text.pll_enable
-                0x00400b9c       0x40 source/board/common/services/clock/samg/sysclk.o
+                0x00400c10       0x40 source/board/common/services/clock/samg/sysclk.o
  .text.pll_is_locked
-                0x00400bdc       0x38 source/board/common/services/clock/samg/sysclk.o
+                0x00400c50       0x38 source/board/common/services/clock/samg/sysclk.o
  .text.pll_enable_source
-                0x00400c14       0x38 source/board/common/services/clock/samg/sysclk.o
+                0x00400c88       0x38 source/board/common/services/clock/samg/sysclk.o
  .text.pll_wait_for_lock
-                0x00400c4c       0x24 source/board/common/services/clock/samg/sysclk.o
+                0x00400cc0       0x24 source/board/common/services/clock/samg/sysclk.o
  .text.sysclk_get_main_hz
-                0x00400c70       0x1c source/board/common/services/clock/samg/sysclk.o
+                0x00400ce4       0x1c source/board/common/services/clock/samg/sysclk.o
  .text.sysclk_get_cpu_hz
-                0x00400c8c       0x14 source/board/common/services/clock/samg/sysclk.o
+                0x00400d00       0x14 source/board/common/services/clock/samg/sysclk.o
  .text.sysclk_init
-                0x00400ca0       0xc8 source/board/common/services/clock/samg/sysclk.o
-                0x00400ca0                sysclk_init
+                0x00400d14       0xc8 source/board/common/services/clock/samg/sysclk.o
+                0x00400d14                sysclk_init
  .text.cpu_irq_enter_critical
-                0x00400d68       0x58 source/board/common/utils/interrupt/interrupt_sam_nvic.o
-                0x00400d68                cpu_irq_enter_critical
+                0x00400ddc       0x58 source/board/common/utils/interrupt/interrupt_sam_nvic.o
+                0x00400ddc                cpu_irq_enter_critical
  .text.cpu_irq_leave_critical
-                0x00400dc0       0x44 source/board/common/utils/interrupt/interrupt_sam_nvic.o
-                0x00400dc0                cpu_irq_leave_critical
- .text._read    0x00400e04       0x54 source/board/common/utils/stdio/read.o
-                0x00400e04                _read
- .text._write   0x00400e58       0x6c source/board/common/utils/stdio/write.o
-                0x00400e58                _write
+                0x00400e34       0x44 source/board/common/utils/interrupt/interrupt_sam_nvic.o
+                0x00400e34                cpu_irq_leave_critical
+ .text._read    0x00400e78       0x54 source/board/common/utils/stdio/read.o
+                0x00400e78                _read
+ .text._write   0x00400ecc       0x6c source/board/common/utils/stdio/write.o
+                0x00400ecc                _write
  .text.osc_get_rate
-                0x00400ec4       0x74 source/board/HAL/src/bsp_misc_samg55.o
+                0x00400f38       0x74 source/board/HAL/src/bsp_misc_samg55.o
  .text.sysclk_get_main_hz
-                0x00400f38       0x1c source/board/HAL/src/bsp_misc_samg55.o
+                0x00400fac       0x1c source/board/HAL/src/bsp_misc_samg55.o
  .text.sysclk_get_cpu_hz
-                0x00400f54       0x14 source/board/HAL/src/bsp_misc_samg55.o
+                0x00400fc8       0x14 source/board/HAL/src/bsp_misc_samg55.o
  .text.ioport_set_pin_dir
-                0x00400f68       0x88 source/board/HAL/src/bsp_misc_samg55.o
+                0x00400fdc       0x88 source/board/HAL/src/bsp_misc_samg55.o
  .text.ioport_set_pin_level
-                0x00400ff0       0x6c source/board/HAL/src/bsp_misc_samg55.o
+                0x00401064       0x6c source/board/HAL/src/bsp_misc_samg55.o
  .text.PIOA_Handler
-                0x0040105c       0x88 source/board/HAL/src/bsp_misc_samg55.o
-                0x0040105c                PIOA_Handler
+                0x004010d0       0x88 source/board/HAL/src/bsp_misc_samg55.o
+                0x004010d0                PIOA_Handler
  .text.ext_MotionINT_handler
-                0x004010e4        0xe source/board/HAL/src/bsp_misc_samg55.o
-                0x004010e4                ext_MotionINT_handler
- *fill*         0x004010f2        0x2 
+                0x00401158        0xe source/board/HAL/src/bsp_misc_samg55.o
+                0x00401158                ext_MotionINT_handler
+ *fill*         0x00401166        0x2 
  .text.ext_int_handler
-                0x004010f4       0x74 source/board/HAL/src/bsp_misc_samg55.o
+                0x00401168       0x74 source/board/HAL/src/bsp_misc_samg55.o
  .text.FLEXCOM1_Handler
-                0x00401168       0x14 source/board/HAL/src/bsp_misc_samg55.o
-                0x00401168                FLEXCOM1_Handler
+                0x004011dc       0x14 source/board/HAL/src/bsp_misc_samg55.o
+                0x004011dc                FLEXCOM1_Handler
  .text.FLEXCOM3_Handler
-                0x0040117c       0x14 source/board/HAL/src/bsp_misc_samg55.o
-                0x0040117c                FLEXCOM3_Handler
+                0x004011f0       0x14 source/board/HAL/src/bsp_misc_samg55.o
+                0x004011f0                FLEXCOM3_Handler
  .text.flexcom_handler
-                0x00401190      0x174 source/board/HAL/src/bsp_misc_samg55.o
+                0x00401204      0x174 source/board/HAL/src/bsp_misc_samg55.o
  .text.RTT_Handler
-                0x00401304       0x18 source/board/HAL/src/bsp_misc_samg55.o
-                0x00401304                RTT_Handler
+                0x00401378       0x18 source/board/HAL/src/bsp_misc_samg55.o
+                0x00401378                RTT_Handler
  .text.TC0_Handler
-                0x0040131c       0x10 source/board/HAL/src/bsp_misc_samg55.o
-                0x0040131c                TC0_Handler
+                0x00401390       0x10 source/board/HAL/src/bsp_misc_samg55.o
+                0x00401390                TC0_Handler
  .text.TC1_Handler
-                0x0040132c       0x44 source/board/HAL/src/bsp_misc_samg55.o
-                0x0040132c                TC1_Handler
+                0x004013a0       0x44 source/board/HAL/src/bsp_misc_samg55.o
+                0x004013a0                TC1_Handler
  .text.sensor_led_on
-                0x00401370       0x28 source/board/HAL/src/bsp_misc_samg55.o
-                0x00401370                sensor_led_on
+                0x004013e4       0x28 source/board/HAL/src/bsp_misc_samg55.o
+                0x004013e4                sensor_led_on
  .text.indicate_alive
-                0x00401398       0xf4 source/board/HAL/src/bsp_misc_samg55.o
-                0x00401398                indicate_alive
+                0x0040140c       0xf4 source/board/HAL/src/bsp_misc_samg55.o
+                0x0040140c                indicate_alive
  .text.NVIC_EnableIRQ
-                0x0040148c       0x34 source/board/HAL/src/chbsp_chirp_samg55.o
+                0x00401500       0x34 source/board/HAL/src/chbsp_chirp_samg55.o
  .text.NVIC_DisableIRQ
-                0x004014c0       0x34 source/board/HAL/src/chbsp_chirp_samg55.o
+                0x00401534       0x34 source/board/HAL/src/chbsp_chirp_samg55.o
  .text.NVIC_ClearPendingIRQ
-                0x004014f4       0x34 source/board/HAL/src/chbsp_chirp_samg55.o
+                0x00401568       0x34 source/board/HAL/src/chbsp_chirp_samg55.o
  .text.NVIC_SetPriority
-                0x00401528       0x54 source/board/HAL/src/chbsp_chirp_samg55.o
+                0x0040159c       0x54 source/board/HAL/src/chbsp_chirp_samg55.o
  .text.osc_get_rate
-                0x0040157c       0x74 source/board/HAL/src/chbsp_chirp_samg55.o
+                0x004015f0       0x74 source/board/HAL/src/chbsp_chirp_samg55.o
  .text.sysclk_get_main_hz
-                0x004015f0       0x1c source/board/HAL/src/chbsp_chirp_samg55.o
+                0x00401664       0x1c source/board/HAL/src/chbsp_chirp_samg55.o
  .text.sysclk_get_cpu_hz
-                0x0040160c       0x14 source/board/HAL/src/chbsp_chirp_samg55.o
+                0x00401680       0x14 source/board/HAL/src/chbsp_chirp_samg55.o
  .text.sysclk_enable_peripheral_clock
-                0x00401620       0x1c source/board/HAL/src/chbsp_chirp_samg55.o
+                0x00401694       0x1c source/board/HAL/src/chbsp_chirp_samg55.o
  .text.ioport_set_port_dir
-                0x0040163c       0x5a source/board/HAL/src/chbsp_chirp_samg55.o
+                0x004016b0       0x5a source/board/HAL/src/chbsp_chirp_samg55.o
  .text.ioport_set_pin_dir
-                0x00401696       0x88 source/board/HAL/src/chbsp_chirp_samg55.o
+                0x0040170a       0x88 source/board/HAL/src/chbsp_chirp_samg55.o
  .text.ioport_set_pin_level
-                0x0040171e       0x6c source/board/HAL/src/chbsp_chirp_samg55.o
+                0x00401792       0x6c source/board/HAL/src/chbsp_chirp_samg55.o
  .text.ioport_set_port_level
-                0x0040178a       0x4c source/board/HAL/src/chbsp_chirp_samg55.o
+                0x004017fe       0x4c source/board/HAL/src/chbsp_chirp_samg55.o
  .text.ioport_pin_to_mask
-                0x004017d6       0x26 source/board/HAL/src/chbsp_chirp_samg55.o
+                0x0040184a       0x26 source/board/HAL/src/chbsp_chirp_samg55.o
  .text.adc_ch_sanity_check
-                0x004017fc       0x18 source/board/HAL/src/chbsp_chirp_samg55.o
+                0x00401870       0x18 source/board/HAL/src/chbsp_chirp_samg55.o
  .text.adc_select_clock_source_mck
-                0x00401814       0x28 source/board/HAL/src/chbsp_chirp_samg55.o
+                0x00401888       0x28 source/board/HAL/src/chbsp_chirp_samg55.o
  .text.adc_set_trigger
-                0x0040183c       0x44 source/board/HAL/src/chbsp_chirp_samg55.o
+                0x004018b0       0x44 source/board/HAL/src/chbsp_chirp_samg55.o
  .text.adc_set_writeprotect
-                0x00401880       0x38 source/board/HAL/src/chbsp_chirp_samg55.o
+                0x004018f4       0x38 source/board/HAL/src/chbsp_chirp_samg55.o
  .text.adc_channel_enable
-                0x004018b8       0x4c source/board/HAL/src/chbsp_chirp_samg55.o
+                0x0040192c       0x4c source/board/HAL/src/chbsp_chirp_samg55.o
  .text.adc_channel_get_value
-                0x00401904       0x2c source/board/HAL/src/chbsp_chirp_samg55.o
+                0x00401978       0x2c source/board/HAL/src/chbsp_chirp_samg55.o
  .text.find_sensors
-                0x00401930      0x1b4 source/board/HAL/src/chbsp_chirp_samg55.o
+                0x004019a4      0x1b4 source/board/HAL/src/chbsp_chirp_samg55.o
  .text.ADC0_init
-                0x00401ae4       0x88 source/board/HAL/src/chbsp_chirp_samg55.o
- *fill*         0x00401b6c        0x4 
+                0x00401b58       0x88 source/board/HAL/src/chbsp_chirp_samg55.o
  .text.Measure_Idd
-                0x00401b70      0x238 source/board/HAL/src/chbsp_chirp_samg55.o
+                0x00401be0      0x238 source/board/HAL/src/chbsp_chirp_samg55.o
  .text.Measure_power
-                0x00401da8       0x2c source/board/HAL/src/chbsp_chirp_samg55.o
+                0x00401e18       0x2c source/board/HAL/src/chbsp_chirp_samg55.o
  .text.ext_int_init
-                0x00401dd4      0x134 source/board/HAL/src/chbsp_chirp_samg55.o
+                0x00401e44      0x134 source/board/HAL/src/chbsp_chirp_samg55.o
  .text.chbsp_board_init
-                0x00401f08       0x6c source/board/HAL/src/chbsp_chirp_samg55.o
-                0x00401f08                chbsp_board_init
+                0x00401f78       0x6c source/board/HAL/src/chbsp_chirp_samg55.o
+                0x00401f78                chbsp_board_init
  .text.chbsp_reset_assert
-                0x00401f74       0x14 source/board/HAL/src/chbsp_chirp_samg55.o
-                0x00401f74                chbsp_reset_assert
+                0x00401fe4       0x14 source/board/HAL/src/chbsp_chirp_samg55.o
+                0x00401fe4                chbsp_reset_assert
  .text.chbsp_reset_release
-                0x00401f88       0x14 source/board/HAL/src/chbsp_chirp_samg55.o
-                0x00401f88                chbsp_reset_release
+                0x00401ff8       0x14 source/board/HAL/src/chbsp_chirp_samg55.o
+                0x00401ff8                chbsp_reset_release
  .text.chbsp_program_enable
-                0x00401f9c       0x38 source/board/HAL/src/chbsp_chirp_samg55.o
-                0x00401f9c                chbsp_program_enable
- .text.chbsp_program_disable
-                0x00401fd4       0x38 source/board/HAL/src/chbsp_chirp_samg55.o
-                0x00401fd4                chbsp_program_disable
- .text.chbsp_set_io_dir_in
                 0x0040200c       0x38 source/board/HAL/src/chbsp_chirp_samg55.o
-                0x0040200c                chbsp_set_io_dir_in
+                0x0040200c                chbsp_program_enable
+ .text.chbsp_program_disable
+                0x00402044       0x38 source/board/HAL/src/chbsp_chirp_samg55.o
+                0x00402044                chbsp_program_disable
+ .text.chbsp_set_io_dir_in
+                0x0040207c       0x38 source/board/HAL/src/chbsp_chirp_samg55.o
+                0x0040207c                chbsp_set_io_dir_in
  .text.chbsp_group_set_io_dir_out
-                0x00402044       0x80 source/board/HAL/src/chbsp_chirp_samg55.o
-                0x00402044                chbsp_group_set_io_dir_out
+                0x004020b4       0x80 source/board/HAL/src/chbsp_chirp_samg55.o
+                0x004020b4                chbsp_group_set_io_dir_out
  .text.chbsp_group_set_io_dir_in
-                0x004020c4       0x80 source/board/HAL/src/chbsp_chirp_samg55.o
-                0x004020c4                chbsp_group_set_io_dir_in
+                0x00402134       0x80 source/board/HAL/src/chbsp_chirp_samg55.o
+                0x00402134                chbsp_group_set_io_dir_in
  .text.chbsp_group_pin_init
-                0x00402144      0x12c source/board/HAL/src/chbsp_chirp_samg55.o
-                0x00402144                chbsp_group_pin_init
+                0x004021b4      0x12c source/board/HAL/src/chbsp_chirp_samg55.o
+                0x004021b4                chbsp_group_pin_init
  .text.chbsp_group_io_clear
-                0x00402270       0x80 source/board/HAL/src/chbsp_chirp_samg55.o
-                0x00402270                chbsp_group_io_clear
+                0x004022e0       0x80 source/board/HAL/src/chbsp_chirp_samg55.o
+                0x004022e0                chbsp_group_io_clear
  .text.chbsp_group_io_set
-                0x004022f0       0x80 source/board/HAL/src/chbsp_chirp_samg55.o
-                0x004022f0                chbsp_group_io_set
+                0x00402360       0x80 source/board/HAL/src/chbsp_chirp_samg55.o
+                0x00402360                chbsp_group_io_set
  .text.chbsp_group_io_interrupt_enable
-                0x00402370       0x4c source/board/HAL/src/chbsp_chirp_samg55.o
-                0x00402370                chbsp_group_io_interrupt_enable
+                0x004023e0       0x4c source/board/HAL/src/chbsp_chirp_samg55.o
+                0x004023e0                chbsp_group_io_interrupt_enable
  .text.chbsp_io_interrupt_enable
-                0x004023bc       0x60 source/board/HAL/src/chbsp_chirp_samg55.o
-                0x004023bc                chbsp_io_interrupt_enable
+                0x0040242c       0x60 source/board/HAL/src/chbsp_chirp_samg55.o
+                0x0040242c                chbsp_io_interrupt_enable
  .text.chbsp_group_io_interrupt_disable
-                0x0040241c       0x4c source/board/HAL/src/chbsp_chirp_samg55.o
-                0x0040241c                chbsp_group_io_interrupt_disable
+                0x0040248c       0x4c source/board/HAL/src/chbsp_chirp_samg55.o
+                0x0040248c                chbsp_group_io_interrupt_disable
  .text.chbsp_io_interrupt_disable
-                0x00402468       0x3c source/board/HAL/src/chbsp_chirp_samg55.o
-                0x00402468                chbsp_io_interrupt_disable
+                0x004024d8       0x3c source/board/HAL/src/chbsp_chirp_samg55.o
+                0x004024d8                chbsp_io_interrupt_disable
  .text.chbsp_io_set
-                0x004024a4       0x30 source/board/HAL/src/chbsp_chirp_samg55.o
-                0x004024a4                chbsp_io_set
- *fill*         0x004024d4        0x4 
+                0x00402514       0x30 source/board/HAL/src/chbsp_chirp_samg55.o
+                0x00402514                chbsp_io_set
+ *fill*         0x00402544        0x4 
  .text.chbsp_delay_us
-                0x004024d8       0xa8 source/board/HAL/src/chbsp_chirp_samg55.o
-                0x004024d8                chbsp_delay_us
+                0x00402548       0xa8 source/board/HAL/src/chbsp_chirp_samg55.o
+                0x00402548                chbsp_delay_us
  .text.chbsp_delay_ms
-                0x00402580       0xb8 source/board/HAL/src/chbsp_chirp_samg55.o
-                0x00402580                chbsp_delay_ms
+                0x004025f0       0xb8 source/board/HAL/src/chbsp_chirp_samg55.o
+                0x004025f0                chbsp_delay_ms
  .text.chbsp_i2c_init
-                0x00402638       0x14 source/board/HAL/src/chbsp_chirp_samg55.o
-                0x00402638                chbsp_i2c_init
+                0x004026a8       0x14 source/board/HAL/src/chbsp_chirp_samg55.o
+                0x004026a8                chbsp_i2c_init
  .text.chbsp_i2c_get_info
-                0x0040264c       0x4c source/board/HAL/src/chbsp_chirp_samg55.o
-                0x0040264c                chbsp_i2c_get_info
+                0x004026bc       0x4c source/board/HAL/src/chbsp_chirp_samg55.o
+                0x004026bc                chbsp_i2c_get_info
  .text.chbsp_i2c_write
-                0x00402698       0x60 source/board/HAL/src/chbsp_chirp_samg55.o
-                0x00402698                chbsp_i2c_write
+                0x00402708       0x60 source/board/HAL/src/chbsp_chirp_samg55.o
+                0x00402708                chbsp_i2c_write
  .text.chbsp_i2c_mem_write
-                0x004026f8       0x68 source/board/HAL/src/chbsp_chirp_samg55.o
-                0x004026f8                chbsp_i2c_mem_write
+                0x00402768       0x68 source/board/HAL/src/chbsp_chirp_samg55.o
+                0x00402768                chbsp_i2c_mem_write
  .text.chbsp_i2c_mem_write_nb
-                0x00402760       0x22 source/board/HAL/src/chbsp_chirp_samg55.o
-                0x00402760                chbsp_i2c_mem_write_nb
- *fill*         0x00402782        0x2 
+                0x004027d0       0x22 source/board/HAL/src/chbsp_chirp_samg55.o
+                0x004027d0                chbsp_i2c_mem_write_nb
+ *fill*         0x004027f2        0x2 
  .text.chbsp_i2c_read
-                0x00402784       0x70 source/board/HAL/src/chbsp_chirp_samg55.o
-                0x00402784                chbsp_i2c_read
+                0x004027f4       0x70 source/board/HAL/src/chbsp_chirp_samg55.o
+                0x004027f4                chbsp_i2c_read
  .text.chbsp_i2c_mem_read
-                0x004027f4       0x78 source/board/HAL/src/chbsp_chirp_samg55.o
-                0x004027f4                chbsp_i2c_mem_read
+                0x00402864       0x78 source/board/HAL/src/chbsp_chirp_samg55.o
+                0x00402864                chbsp_i2c_mem_read
  .text.chbsp_i2c_read_nb
-                0x0040286c      0x138 source/board/HAL/src/chbsp_chirp_samg55.o
-                0x0040286c                chbsp_i2c_read_nb
+                0x004028dc      0x138 source/board/HAL/src/chbsp_chirp_samg55.o
+                0x004028dc                chbsp_i2c_read_nb
  .text.chbsp_i2c_mem_read_nb
-                0x004029a4      0x15c source/board/HAL/src/chbsp_chirp_samg55.o
-                0x004029a4                chbsp_i2c_mem_read_nb
+                0x00402a14      0x15c source/board/HAL/src/chbsp_chirp_samg55.o
+                0x00402a14                chbsp_i2c_mem_read_nb
  .text.chbsp_i2c_reset
-                0x00402b00       0x3c source/board/HAL/src/chbsp_chirp_samg55.o
-                0x00402b00                chbsp_i2c_reset
+                0x00402b70       0x3c source/board/HAL/src/chbsp_chirp_samg55.o
+                0x00402b70                chbsp_i2c_reset
  .text.chbsp_periodic_timer_init
-                0x00402b3c      0x11c source/board/HAL/src/chbsp_chirp_samg55.o
-                0x00402b3c                chbsp_periodic_timer_init
+                0x00402bac      0x11c source/board/HAL/src/chbsp_chirp_samg55.o
+                0x00402bac                chbsp_periodic_timer_init
  .text.get_period_in_tick
-                0x00402c58       0xe8 source/board/HAL/src/chbsp_chirp_samg55.o
+                0x00402cc8       0xe8 source/board/HAL/src/chbsp_chirp_samg55.o
  .text.program_next_period
-                0x00402d40       0x44 source/board/HAL/src/chbsp_chirp_samg55.o
+                0x00402db0       0x44 source/board/HAL/src/chbsp_chirp_samg55.o
  .text.chbsp_periodic_timer_irq_enable
-                0x00402d84       0x28 source/board/HAL/src/chbsp_chirp_samg55.o
-                0x00402d84                chbsp_periodic_timer_irq_enable
+                0x00402df4       0x28 source/board/HAL/src/chbsp_chirp_samg55.o
+                0x00402df4                chbsp_periodic_timer_irq_enable
  .text.chbsp_periodic_timer_start
-                0x00402dac       0x38 source/board/HAL/src/chbsp_chirp_samg55.o
-                0x00402dac                chbsp_periodic_timer_start
+                0x00402e1c       0x38 source/board/HAL/src/chbsp_chirp_samg55.o
+                0x00402e1c                chbsp_periodic_timer_start
  .text.chbsp_periodic_timer_handler
-                0x00402de4       0x50 source/board/HAL/src/chbsp_chirp_samg55.o
-                0x00402de4                chbsp_periodic_timer_handler
+                0x00402e54       0x50 source/board/HAL/src/chbsp_chirp_samg55.o
+                0x00402e54                chbsp_periodic_timer_handler
  .text.chbsp_proc_sleep
-                0x00402e34       0x14 source/board/HAL/src/chbsp_chirp_samg55.o
-                0x00402e34                chbsp_proc_sleep
+                0x00402ea4       0x14 source/board/HAL/src/chbsp_chirp_samg55.o
+                0x00402ea4                chbsp_proc_sleep
  .text.chbsp_led_on
-                0x00402e48       0x28 source/board/HAL/src/chbsp_chirp_samg55.o
-                0x00402e48                chbsp_led_on
+                0x00402eb8       0x28 source/board/HAL/src/chbsp_chirp_samg55.o
+                0x00402eb8                chbsp_led_on
  .text.chbsp_timestamp_ms
-                0x00402e70       0x2c source/board/HAL/src/chbsp_chirp_samg55.o
-                0x00402e70                chbsp_timestamp_ms
+                0x00402ee0       0x2c source/board/HAL/src/chbsp_chirp_samg55.o
+                0x00402ee0                chbsp_timestamp_ms
  .text.time_hal_get_in_us
-                0x00402e9c       0xf0 source/board/HAL/src/time_hal.o
-                0x00402e9c                time_hal_get_in_us
+                0x00402f0c       0xf0 source/board/HAL/src/time_hal.o
+                0x00402f0c                time_hal_get_in_us
  .text.sysclk_enable_peripheral_clock
-                0x00402f8c       0x1c source/board/sam/boards/samg55_xplained_pro/board_init.o
+                0x00402ffc       0x1c source/board/sam/boards/samg55_xplained_pro/board_init.o
  .text.ioport_init
-                0x00402fa8       0x18 source/board/sam/boards/samg55_xplained_pro/board_init.o
+                0x00403018       0x18 source/board/sam/boards/samg55_xplained_pro/board_init.o
  .text.ioport_disable_pin
-                0x00402fc0       0x4a source/board/sam/boards/samg55_xplained_pro/board_init.o
+                0x00403030       0x4a source/board/sam/boards/samg55_xplained_pro/board_init.o
  .text.ioport_set_pin_mode
-                0x0040300a      0x11c source/board/sam/boards/samg55_xplained_pro/board_init.o
+                0x0040307a      0x11c source/board/sam/boards/samg55_xplained_pro/board_init.o
  .text.ioport_set_pin_dir
-                0x00403126       0x88 source/board/sam/boards/samg55_xplained_pro/board_init.o
+                0x00403196       0x88 source/board/sam/boards/samg55_xplained_pro/board_init.o
  .text.ioport_set_pin_level
-                0x004031ae       0x6c source/board/sam/boards/samg55_xplained_pro/board_init.o
- *fill*         0x0040321a        0x2 
+                0x0040321e       0x6c source/board/sam/boards/samg55_xplained_pro/board_init.o
+ *fill*         0x0040328a        0x2 
  .text.system_board_init_I2C
-                0x0040321c      0x124 source/board/sam/boards/samg55_xplained_pro/board_init.o
-                0x0040321c                system_board_init_I2C
-                0x0040321c                board_init_I2C
+                0x0040328c      0x124 source/board/sam/boards/samg55_xplained_pro/board_init.o
+                0x0040328c                system_board_init_I2C
+                0x0040328c                board_init_I2C
  .text.cpu_irq_save
-                0x00403340       0x38 source/board/sam/drivers/adc/adc2.o
+                0x004033b0       0x38 source/board/sam/drivers/adc/adc2.o
  .text.cpu_irq_is_enabled_flags
-                0x00403378       0x20 source/board/sam/drivers/adc/adc2.o
+                0x004033e8       0x20 source/board/sam/drivers/adc/adc2.o
  .text.cpu_irq_restore
-                0x00403398       0x30 source/board/sam/drivers/adc/adc2.o
+                0x00403408       0x30 source/board/sam/drivers/adc/adc2.o
  .text.adc_get_interrupt_status
-                0x004033c8       0x18 source/board/sam/drivers/adc/adc2.o
+                0x00403438       0x18 source/board/sam/drivers/adc/adc2.o
  .text.sleepmgr_lock_mode
-                0x004033e0       0x44 source/board/sam/drivers/adc/adc2.o
+                0x00403450       0x44 source/board/sam/drivers/adc/adc2.o
  .text.osc_get_rate
-                0x00403424       0x74 source/board/sam/drivers/adc/adc2.o
+                0x00403494       0x74 source/board/sam/drivers/adc/adc2.o
  .text.sysclk_get_main_hz
-                0x00403498       0x1c source/board/sam/drivers/adc/adc2.o
+                0x00403508       0x1c source/board/sam/drivers/adc/adc2.o
  .text.sysclk_get_cpu_hz
-                0x004034b4       0x14 source/board/sam/drivers/adc/adc2.o
+                0x00403524       0x14 source/board/sam/drivers/adc/adc2.o
  .text.adc_get_config_defaults
-                0x004034c8       0x54 source/board/sam/drivers/adc/adc2.o
-                0x004034c8                adc_get_config_defaults
+                0x00403538       0x54 source/board/sam/drivers/adc/adc2.o
+                0x00403538                adc_get_config_defaults
  .text.adc_set_config
-                0x0040351c       0x98 source/board/sam/drivers/adc/adc2.o
+                0x0040358c       0x98 source/board/sam/drivers/adc/adc2.o
  .text.adc_init
-                0x004035b4       0x60 source/board/sam/drivers/adc/adc2.o
-                0x004035b4                adc_init
+                0x00403624       0x60 source/board/sam/drivers/adc/adc2.o
+                0x00403624                adc_init
  .text.adc_set_resolution
-                0x00403614       0x22 source/board/sam/drivers/adc/adc2.o
-                0x00403614                adc_set_resolution
- *fill*         0x00403636        0x2 
+                0x00403684       0x22 source/board/sam/drivers/adc/adc2.o
+                0x00403684                adc_set_resolution
+ *fill*         0x004036a6        0x2 
  .text.adc_interrupt
-                0x00403638       0x2c source/board/sam/drivers/adc/adc2.o
+                0x004036a8       0x2c source/board/sam/drivers/adc/adc2.o
  .text.adc_process_callback
-                0x00403664       0x50 source/board/sam/drivers/adc/adc2.o
+                0x004036d4       0x50 source/board/sam/drivers/adc/adc2.o
  .text.ADC_Handler
-                0x004036b4       0x18 source/board/sam/drivers/adc/adc2.o
-                0x004036b4                ADC_Handler
+                0x00403724       0x18 source/board/sam/drivers/adc/adc2.o
+                0x00403724                ADC_Handler
  .text.adc_enable
-                0x004036cc       0x1c source/board/sam/drivers/adc/adc2.o
-                0x004036cc                adc_enable
+                0x0040373c       0x1c source/board/sam/drivers/adc/adc2.o
+                0x0040373c                adc_enable
  .text.cpu_irq_save
-                0x004036e8       0x38 source/board/sam/drivers/flexcom/flexcom.o
+                0x00403758       0x38 source/board/sam/drivers/flexcom/flexcom.o
  .text.cpu_irq_is_enabled_flags
-                0x00403720       0x20 source/board/sam/drivers/flexcom/flexcom.o
+                0x00403790       0x20 source/board/sam/drivers/flexcom/flexcom.o
  .text.cpu_irq_restore
-                0x00403740       0x30 source/board/sam/drivers/flexcom/flexcom.o
+                0x004037b0       0x30 source/board/sam/drivers/flexcom/flexcom.o
  .text.sysclk_enable_peripheral_clock
-                0x00403770       0x1c source/board/sam/drivers/flexcom/flexcom.o
+                0x004037e0       0x1c source/board/sam/drivers/flexcom/flexcom.o
  .text.sleepmgr_lock_mode
-                0x0040378c       0x44 source/board/sam/drivers/flexcom/flexcom.o
+                0x004037fc       0x44 source/board/sam/drivers/flexcom/flexcom.o
  .text.flexcom_enable
-                0x004037d0      0x168 source/board/sam/drivers/flexcom/flexcom.o
-                0x004037d0                flexcom_enable
+                0x00403840      0x168 source/board/sam/drivers/flexcom/flexcom.o
+                0x00403840                flexcom_enable
  .text.flexcom_set_opmode
-                0x00403938       0x1e source/board/sam/drivers/flexcom/flexcom.o
-                0x00403938                flexcom_set_opmode
+                0x004039a8       0x1e source/board/sam/drivers/flexcom/flexcom.o
+                0x004039a8                flexcom_set_opmode
  .text.pdc_rx_init
-                0x00403956       0x44 source/board/sam/drivers/pdc/pdc.o
-                0x00403956                pdc_rx_init
+                0x004039c6       0x44 source/board/sam/drivers/pdc/pdc.o
+                0x004039c6                pdc_rx_init
  .text.pdc_enable_transfer
-                0x0040399a       0x22 source/board/sam/drivers/pdc/pdc.o
-                0x0040399a                pdc_enable_transfer
+                0x00403a0a       0x22 source/board/sam/drivers/pdc/pdc.o
+                0x00403a0a                pdc_enable_transfer
  .text.pdc_disable_transfer
-                0x004039bc       0x22 source/board/sam/drivers/pdc/pdc.o
-                0x004039bc                pdc_disable_transfer
+                0x00403a2c       0x22 source/board/sam/drivers/pdc/pdc.o
+                0x00403a2c                pdc_disable_transfer
  .text.pio_pull_up
-                0x004039de       0x2c source/board/sam/drivers/pio/pio.o
-                0x004039de                pio_pull_up
+                0x00403a4e       0x2c source/board/sam/drivers/pio/pio.o
+                0x00403a4e                pio_pull_up
  .text.pio_set_peripheral
-                0x00403a0a       0xb0 source/board/sam/drivers/pio/pio.o
-                0x00403a0a                pio_set_peripheral
- *fill*         0x00403aba        0x2 
+                0x00403a7a       0xb0 source/board/sam/drivers/pio/pio.o
+                0x00403a7a                pio_set_peripheral
+ *fill*         0x00403b2a        0x2 
  .text.pio_set_input
-                0x00403abc       0x6c source/board/sam/drivers/pio/pio.o
-                0x00403abc                pio_set_input
+                0x00403b2c       0x6c source/board/sam/drivers/pio/pio.o
+                0x00403b2c                pio_set_input
  .text.pio_set_output
-                0x00403b28       0x64 source/board/sam/drivers/pio/pio.o
-                0x00403b28                pio_set_output
+                0x00403b98       0x64 source/board/sam/drivers/pio/pio.o
+                0x00403b98                pio_set_output
  .text.pio_configure
-                0x00403b8c       0xc0 source/board/sam/drivers/pio/pio.o
-                0x00403b8c                pio_configure
+                0x00403bfc       0xc0 source/board/sam/drivers/pio/pio.o
+                0x00403bfc                pio_configure
  .text.pio_pull_down
-                0x00403c4c       0x30 source/board/sam/drivers/pio/pio.o
-                0x00403c4c                pio_pull_down
+                0x00403cbc       0x30 source/board/sam/drivers/pio/pio.o
+                0x00403cbc                pio_pull_down
  .text.pio_configure_interrupt
-                0x00403c7c       0x6c source/board/sam/drivers/pio/pio.o
-                0x00403c7c                pio_configure_interrupt
+                0x00403cec       0x6c source/board/sam/drivers/pio/pio.o
+                0x00403cec                pio_configure_interrupt
  .text.pio_enable_interrupt
-                0x00403ce8       0x1c source/board/sam/drivers/pio/pio.o
-                0x00403ce8                pio_enable_interrupt
+                0x00403d58       0x1c source/board/sam/drivers/pio/pio.o
+                0x00403d58                pio_enable_interrupt
  .text.pio_disable_interrupt
-                0x00403d04       0x1c source/board/sam/drivers/pio/pio.o
-                0x00403d04                pio_disable_interrupt
+                0x00403d74       0x1c source/board/sam/drivers/pio/pio.o
+                0x00403d74                pio_disable_interrupt
  .text.pio_get_interrupt_status
-                0x00403d20       0x18 source/board/sam/drivers/pio/pio.o
-                0x00403d20                pio_get_interrupt_status
+                0x00403d90       0x18 source/board/sam/drivers/pio/pio.o
+                0x00403d90                pio_get_interrupt_status
  .text.pio_get_interrupt_mask
-                0x00403d38       0x18 source/board/sam/drivers/pio/pio.o
-                0x00403d38                pio_get_interrupt_mask
+                0x00403da8       0x18 source/board/sam/drivers/pio/pio.o
+                0x00403da8                pio_get_interrupt_mask
  .text.NVIC_EnableIRQ
-                0x00403d50       0x34 source/board/sam/drivers/pio/pio_handler.o
+                0x00403dc0       0x34 source/board/sam/drivers/pio/pio_handler.o
  .text.NVIC_DisableIRQ
-                0x00403d84       0x34 source/board/sam/drivers/pio/pio_handler.o
+                0x00403df4       0x34 source/board/sam/drivers/pio/pio_handler.o
  .text.NVIC_ClearPendingIRQ
-                0x00403db8       0x34 source/board/sam/drivers/pio/pio_handler.o
+                0x00403e28       0x34 source/board/sam/drivers/pio/pio_handler.o
  .text.NVIC_SetPriority
-                0x00403dec       0x54 source/board/sam/drivers/pio/pio_handler.o
+                0x00403e5c       0x54 source/board/sam/drivers/pio/pio_handler.o
  .text.pio_handler_process
-                0x00403e40       0xb4 source/board/sam/drivers/pio/pio_handler.o
-                0x00403e40                pio_handler_process
+                0x00403eb0       0xb4 source/board/sam/drivers/pio/pio_handler.o
+                0x00403eb0                pio_handler_process
  .text.pio_handler_set
-                0x00403ef4       0xa4 source/board/sam/drivers/pio/pio_handler.o
-                0x00403ef4                pio_handler_set
+                0x00403f64       0xa4 source/board/sam/drivers/pio/pio_handler.o
+                0x00403f64                pio_handler_set
  .text.PIOB_Handler
-                0x00403f98       0x18 source/board/sam/drivers/pio/pio_handler.o
-                0x00403f98                PIOB_Handler
+                0x00404008       0x18 source/board/sam/drivers/pio/pio_handler.o
+                0x00404008                PIOB_Handler
  .text.pio_handler_set_priority
-                0x00403fb0       0x84 source/board/sam/drivers/pio/pio_handler.o
-                0x00403fb0                pio_handler_set_priority
+                0x00404020       0x84 source/board/sam/drivers/pio/pio_handler.o
+                0x00404020                pio_handler_set_priority
  .text.pio_handler_clear_pending_IRQ
-                0x00404034       0x74 source/board/sam/drivers/pio/pio_handler.o
-                0x00404034                pio_handler_clear_pending_IRQ
+                0x004040a4       0x74 source/board/sam/drivers/pio/pio_handler.o
+                0x004040a4                pio_handler_clear_pending_IRQ
  .text.pmc_switch_mck_to_pllack
-                0x004040a8       0x84 source/board/sam/drivers/pmc/pmc.o
-                0x004040a8                pmc_switch_mck_to_pllack
+                0x00404118       0x84 source/board/sam/drivers/pmc/pmc.o
+                0x00404118                pmc_switch_mck_to_pllack
  .text.pmc_switch_sclk_to_32kxtal
-                0x0040412c       0x38 source/board/sam/drivers/pmc/pmc.o
-                0x0040412c                pmc_switch_sclk_to_32kxtal
+                0x0040419c       0x38 source/board/sam/drivers/pmc/pmc.o
+                0x0040419c                pmc_switch_sclk_to_32kxtal
  .text.pmc_osc_is_ready_32kxtal
-                0x00404164       0x34 source/board/sam/drivers/pmc/pmc.o
-                0x00404164                pmc_osc_is_ready_32kxtal
+                0x004041d4       0x34 source/board/sam/drivers/pmc/pmc.o
+                0x004041d4                pmc_osc_is_ready_32kxtal
  .text.pmc_switch_mainck_to_fastrc
-                0x00404198       0x70 source/board/sam/drivers/pmc/pmc.o
-                0x00404198                pmc_switch_mainck_to_fastrc
+                0x00404208       0x70 source/board/sam/drivers/pmc/pmc.o
+                0x00404208                pmc_switch_mainck_to_fastrc
  .text.pmc_switch_mainck_to_xtal
-                0x00404208       0x78 source/board/sam/drivers/pmc/pmc.o
-                0x00404208                pmc_switch_mainck_to_xtal
+                0x00404278       0x78 source/board/sam/drivers/pmc/pmc.o
+                0x00404278                pmc_switch_mainck_to_xtal
  .text.pmc_osc_is_ready_mainck
-                0x00404280       0x1c source/board/sam/drivers/pmc/pmc.o
-                0x00404280                pmc_osc_is_ready_mainck
+                0x004042f0       0x1c source/board/sam/drivers/pmc/pmc.o
+                0x004042f0                pmc_osc_is_ready_mainck
  .text.pmc_disable_pllack
-                0x0040429c       0x18 source/board/sam/drivers/pmc/pmc.o
-                0x0040429c                pmc_disable_pllack
+                0x0040430c       0x18 source/board/sam/drivers/pmc/pmc.o
+                0x0040430c                pmc_disable_pllack
  .text.pmc_is_locked_pllack
-                0x004042b4       0x1c source/board/sam/drivers/pmc/pmc.o
-                0x004042b4                pmc_is_locked_pllack
+                0x00404324       0x1c source/board/sam/drivers/pmc/pmc.o
+                0x00404324                pmc_is_locked_pllack
  .text.pmc_disable_pllbck
-                0x004042d0       0x18 source/board/sam/drivers/pmc/pmc.o
-                0x004042d0                pmc_disable_pllbck
+                0x00404340       0x18 source/board/sam/drivers/pmc/pmc.o
+                0x00404340                pmc_disable_pllbck
  .text.pmc_is_locked_pllbck
-                0x004042e8       0x1c source/board/sam/drivers/pmc/pmc.o
-                0x004042e8                pmc_is_locked_pllbck
+                0x00404358       0x1c source/board/sam/drivers/pmc/pmc.o
+                0x00404358                pmc_is_locked_pllbck
  .text.pmc_enable_periph_clk
-                0x00404304       0x84 source/board/sam/drivers/pmc/pmc.o
-                0x00404304                pmc_enable_periph_clk
+                0x00404374       0x84 source/board/sam/drivers/pmc/pmc.o
+                0x00404374                pmc_enable_periph_clk
  .text.pmc_switch_pck_to_pllack
-                0x00404388       0x58 source/board/sam/drivers/pmc/pmc.o
-                0x00404388                pmc_switch_pck_to_pllack
+                0x004043f8       0x58 source/board/sam/drivers/pmc/pmc.o
+                0x004043f8                pmc_switch_pck_to_pllack
  .text.pmc_switch_pck_to_mck
-                0x004043e0       0x58 source/board/sam/drivers/pmc/pmc.o
-                0x004043e0                pmc_switch_pck_to_mck
+                0x00404450       0x58 source/board/sam/drivers/pmc/pmc.o
+                0x00404450                pmc_switch_pck_to_mck
  .text.pmc_enable_pck
-                0x00404438       0x28 source/board/sam/drivers/pmc/pmc.o
-                0x00404438                pmc_enable_pck
+                0x004044a8       0x28 source/board/sam/drivers/pmc/pmc.o
+                0x004044a8                pmc_enable_pck
  .text.pmc_disable_pck
-                0x00404460       0x28 source/board/sam/drivers/pmc/pmc.o
-                0x00404460                pmc_disable_pck
+                0x004044d0       0x28 source/board/sam/drivers/pmc/pmc.o
+                0x004044d0                pmc_disable_pck
  .text.pmc_set_flash_in_wait_mode
-                0x00404488       0x20 source/board/sam/drivers/pmc/pmc.o
-                0x00404488                pmc_set_flash_in_wait_mode
+                0x004044f8       0x20 source/board/sam/drivers/pmc/pmc.o
+                0x004044f8                pmc_set_flash_in_wait_mode
  .text.pmc_enable_waitmode
-                0x004044a8       0x7c source/board/sam/drivers/pmc/pmc.o
-                0x004044a8                pmc_enable_waitmode
+                0x00404518       0x7c source/board/sam/drivers/pmc/pmc.o
+                0x00404518                pmc_enable_waitmode
  .text.pmc_sleep
-                0x00404524      0x39c source/board/sam/drivers/pmc/sleep.o
-                0x00404524                pmc_sleep
+                0x00404594      0x39c source/board/sam/drivers/pmc/sleep.o
+                0x00404594                pmc_sleep
  .text.rtt_get_status
-                0x004048c0       0x18 source/board/sam/drivers/rtt/rtt.o
-                0x004048c0                rtt_get_status
+                0x00404930       0x18 source/board/sam/drivers/rtt/rtt.o
+                0x00404930                rtt_get_status
  .text.supc_set_regulator_trim_user
-                0x004048d8       0x38 source/board/sam/drivers/supc/supc.o
-                0x004048d8                supc_set_regulator_trim_user
- .text.tc_init  0x00404910       0x3a source/board/sam/drivers/tc/tc.o
-                0x00404910                tc_init
+                0x00404948       0x38 source/board/sam/drivers/supc/supc.o
+                0x00404948                supc_set_regulator_trim_user
+ .text.tc_init  0x00404980       0x3a source/board/sam/drivers/tc/tc.o
+                0x00404980                tc_init
  .text.tc_start
-                0x0040494a       0x22 source/board/sam/drivers/tc/tc.o
-                0x0040494a                tc_start
+                0x004049ba       0x22 source/board/sam/drivers/tc/tc.o
+                0x004049ba                tc_start
  .text.tc_write_rc
-                0x0040496c       0x26 source/board/sam/drivers/tc/tc.o
-                0x0040496c                tc_write_rc
+                0x004049dc       0x26 source/board/sam/drivers/tc/tc.o
+                0x004049dc                tc_write_rc
  .text.tc_enable_interrupt
-                0x00404992       0x28 source/board/sam/drivers/tc/tc.o
-                0x00404992                tc_enable_interrupt
+                0x00404a02       0x28 source/board/sam/drivers/tc/tc.o
+                0x00404a02                tc_enable_interrupt
  .text.tc_get_interrupt_mask
-                0x004049ba       0x24 source/board/sam/drivers/tc/tc.o
-                0x004049ba                tc_get_interrupt_mask
+                0x00404a2a       0x24 source/board/sam/drivers/tc/tc.o
+                0x00404a2a                tc_get_interrupt_mask
  .text.tc_get_status
-                0x004049de       0x24 source/board/sam/drivers/tc/tc.o
-                0x004049de                tc_get_status
+                0x00404a4e       0x24 source/board/sam/drivers/tc/tc.o
+                0x00404a4e                tc_get_status
  .text.twi_enable_master_mode
-                0x00404a02       0x26 source/board/sam/drivers/twi/twi.o
-                0x00404a02                twi_enable_master_mode
+                0x00404a72       0x26 source/board/sam/drivers/twi/twi.o
+                0x00404a72                twi_enable_master_mode
  .text.twi_master_init
-                0x00404a28       0x64 source/board/sam/drivers/twi/twi.o
-                0x00404a28                twi_master_init
+                0x00404a98       0x64 source/board/sam/drivers/twi/twi.o
+                0x00404a98                twi_master_init
  .text.twi_set_speed
-                0x00404a8c       0xf4 source/board/sam/drivers/twi/twi.o
-                0x00404a8c                twi_set_speed
+                0x00404afc       0xf4 source/board/sam/drivers/twi/twi.o
+                0x00404afc                twi_set_speed
  .text.twi_mk_addr
-                0x00404b80       0x5c source/board/sam/drivers/twi/twi.o
-                0x00404b80                twi_mk_addr
+                0x00404bf0       0x5c source/board/sam/drivers/twi/twi.o
+                0x00404bf0                twi_mk_addr
  .text.twi_master_read
-                0x00404bdc      0x10c source/board/sam/drivers/twi/twi.o
-                0x00404bdc                twi_master_read
+                0x00404c4c      0x10c source/board/sam/drivers/twi/twi.o
+                0x00404c4c                twi_master_read
  .text.twi_master_write
-                0x00404ce8       0xdc source/board/sam/drivers/twi/twi.o
-                0x00404ce8                twi_master_write
+                0x00404d58       0xdc source/board/sam/drivers/twi/twi.o
+                0x00404d58                twi_master_write
  .text.twi_enable_interrupt
-                0x00404dc4       0x1c source/board/sam/drivers/twi/twi.o
-                0x00404dc4                twi_enable_interrupt
+                0x00404e34       0x1c source/board/sam/drivers/twi/twi.o
+                0x00404e34                twi_enable_interrupt
  .text.twi_disable_interrupt
-                0x00404de0       0x20 source/board/sam/drivers/twi/twi.o
-                0x00404de0                twi_disable_interrupt
+                0x00404e50       0x20 source/board/sam/drivers/twi/twi.o
+                0x00404e50                twi_disable_interrupt
  .text.twi_get_interrupt_status
-                0x00404e00       0x18 source/board/sam/drivers/twi/twi.o
-                0x00404e00                twi_get_interrupt_status
+                0x00404e70       0x18 source/board/sam/drivers/twi/twi.o
+                0x00404e70                twi_get_interrupt_status
  .text.twi_get_interrupt_mask
-                0x00404e18       0x18 source/board/sam/drivers/twi/twi.o
-                0x00404e18                twi_get_interrupt_mask
+                0x00404e88       0x18 source/board/sam/drivers/twi/twi.o
+                0x00404e88                twi_get_interrupt_mask
  .text.twi_reset
-                0x00404e30       0x1e source/board/sam/drivers/twi/twi.o
-                0x00404e30                twi_reset
- *fill*         0x00404e4e        0x2 
+                0x00404ea0       0x1e source/board/sam/drivers/twi/twi.o
+                0x00404ea0                twi_reset
+ *fill*         0x00404ebe        0x2 
  .text.twi_get_pdc_base
-                0x00404e50       0x5c source/board/sam/drivers/twi/twi.o
-                0x00404e50                twi_get_pdc_base
+                0x00404ec0       0x5c source/board/sam/drivers/twi/twi.o
+                0x00404ec0                twi_get_pdc_base
  .text.usart_set_async_baudrate
-                0x00404eac       0x8a source/board/sam/drivers/usart/usart.o
-                0x00404eac                usart_set_async_baudrate
- *fill*         0x00404f36        0x2 
+                0x00404f1c       0x8a source/board/sam/drivers/usart/usart.o
+                0x00404f1c                usart_set_async_baudrate
+ *fill*         0x00404fa6        0x2 
  .text.usart_reset
-                0x00404f38       0x54 source/board/sam/drivers/usart/usart.o
-                0x00404f38                usart_reset
+                0x00404fa8       0x54 source/board/sam/drivers/usart/usart.o
+                0x00404fa8                usart_reset
  .text.usart_init_rs232
-                0x00404f8c       0x84 source/board/sam/drivers/usart/usart.o
-                0x00404f8c                usart_init_rs232
+                0x00404ffc       0x84 source/board/sam/drivers/usart/usart.o
+                0x00404ffc                usart_init_rs232
  .text.usart_enable_tx
-                0x00405010       0x1a source/board/sam/drivers/usart/usart.o
-                0x00405010                usart_enable_tx
+                0x00405080       0x1a source/board/sam/drivers/usart/usart.o
+                0x00405080                usart_enable_tx
  .text.usart_reset_tx
-                0x0040502a       0x1a source/board/sam/drivers/usart/usart.o
-                0x0040502a                usart_reset_tx
+                0x0040509a       0x1a source/board/sam/drivers/usart/usart.o
+                0x0040509a                usart_reset_tx
  .text.usart_enable_rx
-                0x00405044       0x1a source/board/sam/drivers/usart/usart.o
-                0x00405044                usart_enable_rx
+                0x004050b4       0x1a source/board/sam/drivers/usart/usart.o
+                0x004050b4                usart_enable_rx
  .text.usart_reset_rx
-                0x0040505e       0x1a source/board/sam/drivers/usart/usart.o
-                0x0040505e                usart_reset_rx
+                0x004050ce       0x1a source/board/sam/drivers/usart/usart.o
+                0x004050ce                usart_reset_rx
  .text.usart_reset_status
-                0x00405078       0x1c source/board/sam/drivers/usart/usart.o
-                0x00405078                usart_reset_status
+                0x004050e8       0x1c source/board/sam/drivers/usart/usart.o
+                0x004050e8                usart_reset_status
  .text.usart_drive_RTS_pin_high
-                0x00405094       0x1c source/board/sam/drivers/usart/usart.o
-                0x00405094                usart_drive_RTS_pin_high
+                0x00405104       0x1c source/board/sam/drivers/usart/usart.o
+                0x00405104                usart_drive_RTS_pin_high
  .text.usart_write
-                0x004050b0       0x32 source/board/sam/drivers/usart/usart.o
-                0x004050b0                usart_write
+                0x00405120       0x32 source/board/sam/drivers/usart/usart.o
+                0x00405120                usart_write
  .text.usart_read
-                0x004050e2       0x34 source/board/sam/drivers/usart/usart.o
-                0x004050e2                usart_read
- *fill*         0x00405116        0x2 
+                0x00405152       0x34 source/board/sam/drivers/usart/usart.o
+                0x00405152                usart_read
+ *fill*         0x00405186        0x2 
  .text.usart_disable_writeprotect
-                0x00405118       0x20 source/board/sam/drivers/usart/usart.o
-                0x00405118                usart_disable_writeprotect
+                0x00405188       0x20 source/board/sam/drivers/usart/usart.o
+                0x00405188                usart_disable_writeprotect
  .text.cpu_irq_save
-                0x00405138       0x38 source/board/sam/utils/cmsis/samg/samg55/source/templates/gcc/startup_samg55.o
+                0x004051a8       0x38 source/board/sam/utils/cmsis/samg/samg55/source/templates/gcc/startup_samg55.o
  .text.cpu_irq_is_enabled_flags
-                0x00405170       0x20 source/board/sam/utils/cmsis/samg/samg55/source/templates/gcc/startup_samg55.o
+                0x004051e0       0x20 source/board/sam/utils/cmsis/samg/samg55/source/templates/gcc/startup_samg55.o
  .text.cpu_irq_restore
-                0x00405190       0x30 source/board/sam/utils/cmsis/samg/samg55/source/templates/gcc/startup_samg55.o
+                0x00405200       0x30 source/board/sam/utils/cmsis/samg/samg55/source/templates/gcc/startup_samg55.o
  .text.Reset_Handler
-                0x004051c0       0xd0 source/board/sam/utils/cmsis/samg/samg55/source/templates/gcc/startup_samg55.o
-                0x004051c0                Reset_Handler
+                0x00405230       0xd0 source/board/sam/utils/cmsis/samg/samg55/source/templates/gcc/startup_samg55.o
+                0x00405230                Reset_Handler
  .text.Dummy_Handler
-                0x00405290        0x6 source/board/sam/utils/cmsis/samg/samg55/source/templates/gcc/startup_samg55.o
-                0x00405290                DebugMon_Handler
-                0x00405290                HardFault_Handler
-                0x00405290                TC2_Handler
-                0x00405290                FLEXCOM4_Handler
-                0x00405290                SysTick_Handler
-                0x00405290                PendSV_Handler
-                0x00405290                NMI_Handler
-                0x00405290                CRCCU_Handler
-                0x00405290                FLEXCOM6_Handler
-                0x00405290                RTC_Handler
-                0x00405290                UsageFault_Handler
-                0x00405290                FLEXCOM0_Handler
-                0x00405290                PDMIC1_Handler
-                0x00405290                WDT_Handler
-                0x00405290                TC4_Handler
-                0x00405290                TC3_Handler
-                0x00405290                ARM_Handler
-                0x00405290                Dummy_Handler
-                0x00405290                MEM2MEM_Handler
-                0x00405290                PMC_Handler
-                0x00405290                PDMIC0_Handler
-                0x00405290                MemManage_Handler
-                0x00405290                SUPC_Handler
-                0x00405290                SVC_Handler
-                0x00405290                UHP_Handler
-                0x00405290                EFC_Handler
-                0x00405290                FLEXCOM7_Handler
-                0x00405290                I2SC0_Handler
-                0x00405290                I2SC1_Handler
-                0x00405290                FLEXCOM2_Handler
-                0x00405290                UDP_Handler
-                0x00405290                BusFault_Handler
-                0x00405290                RSTC_Handler
-                0x00405290                FLEXCOM5_Handler
-                0x00405290                TC5_Handler
- *fill*         0x00405296        0x2 
+                0x00405300        0x6 source/board/sam/utils/cmsis/samg/samg55/source/templates/gcc/startup_samg55.o
+                0x00405300                DebugMon_Handler
+                0x00405300                HardFault_Handler
+                0x00405300                TC2_Handler
+                0x00405300                FLEXCOM4_Handler
+                0x00405300                SysTick_Handler
+                0x00405300                PendSV_Handler
+                0x00405300                NMI_Handler
+                0x00405300                CRCCU_Handler
+                0x00405300                FLEXCOM6_Handler
+                0x00405300                RTC_Handler
+                0x00405300                UsageFault_Handler
+                0x00405300                FLEXCOM0_Handler
+                0x00405300                PDMIC1_Handler
+                0x00405300                WDT_Handler
+                0x00405300                TC4_Handler
+                0x00405300                TC3_Handler
+                0x00405300                ARM_Handler
+                0x00405300                Dummy_Handler
+                0x00405300                MEM2MEM_Handler
+                0x00405300                PMC_Handler
+                0x00405300                PDMIC0_Handler
+                0x00405300                MemManage_Handler
+                0x00405300                SUPC_Handler
+                0x00405300                SVC_Handler
+                0x00405300                UHP_Handler
+                0x00405300                EFC_Handler
+                0x00405300                FLEXCOM7_Handler
+                0x00405300                I2SC0_Handler
+                0x00405300                I2SC1_Handler
+                0x00405300                FLEXCOM2_Handler
+                0x00405300                UDP_Handler
+                0x00405300                BusFault_Handler
+                0x00405300                RSTC_Handler
+                0x00405300                FLEXCOM5_Handler
+                0x00405300                TC5_Handler
+ *fill*         0x00405306        0x2 
  .text.SystemCoreClockUpdate
-                0x00405298      0x124 source/board/sam/utils/cmsis/samg/samg55/source/templates/system_samg55.o
-                0x00405298                SystemCoreClockUpdate
+                0x00405308      0x124 source/board/sam/utils/cmsis/samg/samg55/source/templates/system_samg55.o
+                0x00405308                SystemCoreClockUpdate
  .text.system_init_flash
-                0x004053bc       0x98 source/board/sam/utils/cmsis/samg/samg55/source/templates/system_samg55.o
-                0x004053bc                system_init_flash
- .text._sbrk    0x00405454       0x58 source/board/sam/utils/syscalls/gcc/syscalls.o
-                0x00405454                _sbrk
- .text._close   0x004054ac       0x18 source/board/sam/utils/syscalls/gcc/syscalls.o
-                0x004054ac                _close
- .text._fstat   0x004054c4       0x20 source/board/sam/utils/syscalls/gcc/syscalls.o
-                0x004054c4                _fstat
- .text._isatty  0x004054e4       0x16 source/board/sam/utils/syscalls/gcc/syscalls.o
-                0x004054e4                _isatty
- .text._lseek   0x004054fa       0x1a source/board/sam/utils/syscalls/gcc/syscalls.o
-                0x004054fa                _lseek
+                0x0040542c       0x98 source/board/sam/utils/cmsis/samg/samg55/source/templates/system_samg55.o
+                0x0040542c                system_init_flash
+ .text._sbrk    0x004054c4       0x58 source/board/sam/utils/syscalls/gcc/syscalls.o
+                0x004054c4                _sbrk
+ .text._close   0x0040551c       0x18 source/board/sam/utils/syscalls/gcc/syscalls.o
+                0x0040551c                _close
+ .text._fstat   0x00405534       0x20 source/board/sam/utils/syscalls/gcc/syscalls.o
+                0x00405534                _fstat
+ .text._isatty  0x00405554       0x16 source/board/sam/utils/syscalls/gcc/syscalls.o
+                0x00405554                _isatty
+ .text._lseek   0x0040556a       0x1a source/board/sam/utils/syscalls/gcc/syscalls.o
+                0x0040556a                _lseek
  .text.ch201_gprmt_init
-                0x00405514      0x1a0 source/drivers/chirpmicro/src/ch201_gprmt.o
-                0x00405514                ch201_gprmt_init
+                0x00405584      0x1a0 source/drivers/chirpmicro/src/ch201_gprmt.o
+                0x00405584                ch201_gprmt_init
  .text.get_ch201_gprmt_fw_ram_init_addr
-                0x004056b4       0x12 source/drivers/chirpmicro/src/ch201_gprmt_fw.o
-                0x004056b4                get_ch201_gprmt_fw_ram_init_addr
+                0x00405724       0x12 source/drivers/chirpmicro/src/ch201_gprmt_fw.o
+                0x00405724                get_ch201_gprmt_fw_ram_init_addr
  .text.get_ch201_gprmt_fw_ram_init_size
-                0x004056c6       0x10 source/drivers/chirpmicro/src/ch201_gprmt_fw.o
-                0x004056c6                get_ch201_gprmt_fw_ram_init_size
- *fill*         0x004056d6        0x2 
+                0x00405736       0x10 source/drivers/chirpmicro/src/ch201_gprmt_fw.o
+                0x00405736                get_ch201_gprmt_fw_ram_init_size
+ *fill*         0x00405746        0x2 
  .text.get_ram_ch201_gprmt_init_ptr
-                0x004056d8       0x14 source/drivers/chirpmicro/src/ch201_gprmt_fw.o
-                0x004056d8                get_ram_ch201_gprmt_init_ptr
+                0x00405748       0x14 source/drivers/chirpmicro/src/ch201_gprmt_fw.o
+                0x00405748                get_ram_ch201_gprmt_init_ptr
  .text.chbsp_debug_toggle
-                0x004056ec       0x16 source/drivers/chirpmicro/src/chbsp_dummy.o
-                0x004056ec                chbsp_debug_toggle
+                0x0040575c       0x16 source/drivers/chirpmicro/src/chbsp_dummy.o
+                0x0040575c                chbsp_debug_toggle
  .text.chbsp_external_i2c_irq_handler
-                0x00405702       0x14 source/drivers/chirpmicro/src/chbsp_dummy.o
-                0x00405702                chbsp_external_i2c_irq_handler
- *fill*         0x00405716        0x2 
- .text.ch_init  0x00405718       0x5c source/drivers/chirpmicro/src/ch_api.o
-                0x00405718                ch_init
+                0x00405772       0x14 source/drivers/chirpmicro/src/chbsp_dummy.o
+                0x00405772                chbsp_external_i2c_irq_handler
+ *fill*         0x00405786        0x2 
+ .text.ch_init  0x00405788       0x5c source/drivers/chirpmicro/src/ch_api.o
+                0x00405788                ch_init
  .text.ch_get_config
-                0x00405774       0x42 source/drivers/chirpmicro/src/ch_api.o
-                0x00405774                ch_get_config
- *fill*         0x004057b6        0x2 
+                0x004057e4       0x42 source/drivers/chirpmicro/src/ch_api.o
+                0x004057e4                ch_get_config
+ *fill*         0x00405826        0x2 
  .text.ch_set_config
-                0x004057b8       0xf8 source/drivers/chirpmicro/src/ch_api.o
-                0x004057b8                ch_set_config
+                0x00405828       0xf8 source/drivers/chirpmicro/src/ch_api.o
+                0x00405828                ch_set_config
  .text.ch_group_start
-                0x004058b0       0x20 source/drivers/chirpmicro/src/ch_api.o
-                0x004058b0                ch_group_start
+                0x00405920       0x20 source/drivers/chirpmicro/src/ch_api.o
+                0x00405920                ch_group_start
  .text.ch_group_trigger
-                0x004058d0       0x1c source/drivers/chirpmicro/src/ch_api.o
-                0x004058d0                ch_group_trigger
+                0x00405940       0x1c source/drivers/chirpmicro/src/ch_api.o
+                0x00405940                ch_group_trigger
  .text.ch_sensor_is_connected
-                0x004058ec       0x18 source/drivers/chirpmicro/src/ch_api.o
-                0x004058ec                ch_sensor_is_connected
+                0x0040595c       0x18 source/drivers/chirpmicro/src/ch_api.o
+                0x0040595c                ch_sensor_is_connected
  .text.ch_get_part_number
-                0x00405904       0x18 source/drivers/chirpmicro/src/ch_api.o
-                0x00405904                ch_get_part_number
+                0x00405974       0x18 source/drivers/chirpmicro/src/ch_api.o
+                0x00405974                ch_get_part_number
  .text.ch_get_dev_num
-                0x0040591c       0x1a source/drivers/chirpmicro/src/ch_api.o
-                0x0040591c                ch_get_dev_num
+                0x0040598c       0x1a source/drivers/chirpmicro/src/ch_api.o
+                0x0040598c                ch_get_dev_num
  .text.ch_get_dev_ptr
-                0x00405936       0x22 source/drivers/chirpmicro/src/ch_api.o
-                0x00405936                ch_get_dev_ptr
+                0x004059a6       0x22 source/drivers/chirpmicro/src/ch_api.o
+                0x004059a6                ch_get_dev_ptr
  .text.ch_get_i2c_address
-                0x00405958       0x18 source/drivers/chirpmicro/src/ch_api.o
-                0x00405958                ch_get_i2c_address
+                0x004059c8       0x18 source/drivers/chirpmicro/src/ch_api.o
+                0x004059c8                ch_get_i2c_address
  .text.ch_get_i2c_bus
-                0x00405970       0x1a source/drivers/chirpmicro/src/ch_api.o
-                0x00405970                ch_get_i2c_bus
+                0x004059e0       0x1a source/drivers/chirpmicro/src/ch_api.o
+                0x004059e0                ch_get_i2c_bus
  .text.ch_get_num_ports
-                0x0040598a       0x18 source/drivers/chirpmicro/src/ch_api.o
-                0x0040598a                ch_get_num_ports
+                0x004059fa       0x18 source/drivers/chirpmicro/src/ch_api.o
+                0x004059fa                ch_get_num_ports
  .text.ch_get_fw_version_string
-                0x004059a2       0x18 source/drivers/chirpmicro/src/ch_api.o
-                0x004059a2                ch_get_fw_version_string
+                0x00405a12       0x18 source/drivers/chirpmicro/src/ch_api.o
+                0x00405a12                ch_get_fw_version_string
  .text.ch_get_mode
-                0x004059ba       0x18 source/drivers/chirpmicro/src/ch_api.o
-                0x004059ba                ch_get_mode
+                0x00405a2a       0x18 source/drivers/chirpmicro/src/ch_api.o
+                0x00405a2a                ch_get_mode
  .text.ch_set_mode
-                0x004059d2       0x42 source/drivers/chirpmicro/src/ch_api.o
-                0x004059d2                ch_set_mode
+                0x00405a42       0x42 source/drivers/chirpmicro/src/ch_api.o
+                0x00405a42                ch_set_mode
  .text.ch_set_sample_interval
-                0x00405a14       0x36 source/drivers/chirpmicro/src/ch_api.o
-                0x00405a14                ch_set_sample_interval
+                0x00405a84       0x36 source/drivers/chirpmicro/src/ch_api.o
+                0x00405a84                ch_set_sample_interval
  .text.ch_get_num_samples
-                0x00405a4a       0x18 source/drivers/chirpmicro/src/ch_api.o
-                0x00405a4a                ch_get_num_samples
- *fill*         0x00405a62        0x2 
+                0x00405aba       0x18 source/drivers/chirpmicro/src/ch_api.o
+                0x00405aba                ch_get_num_samples
+ *fill*         0x00405ad2        0x2 
  .text.ch_set_num_samples
-                0x00405a64       0x4c source/drivers/chirpmicro/src/ch_api.o
-                0x00405a64                ch_set_num_samples
+                0x00405ad4       0x4c source/drivers/chirpmicro/src/ch_api.o
+                0x00405ad4                ch_set_num_samples
  .text.ch_set_max_range
-                0x00405ab0       0x34 source/drivers/chirpmicro/src/ch_api.o
-                0x00405ab0                ch_set_max_range
+                0x00405b20       0x34 source/drivers/chirpmicro/src/ch_api.o
+                0x00405b20                ch_set_max_range
  .text.ch_set_static_range
-                0x00405ae4       0x36 source/drivers/chirpmicro/src/ch_api.o
-                0x00405ae4                ch_set_static_range
+                0x00405b54       0x36 source/drivers/chirpmicro/src/ch_api.o
+                0x00405b54                ch_set_static_range
  .text.ch_get_range
-                0x00405b1a       0x32 source/drivers/chirpmicro/src/ch_api.o
-                0x00405b1a                ch_get_range
+                0x00405b8a       0x32 source/drivers/chirpmicro/src/ch_api.o
+                0x00405b8a                ch_get_range
  .text.ch_get_amplitude
-                0x00405b4c       0x2e source/drivers/chirpmicro/src/ch_api.o
-                0x00405b4c                ch_get_amplitude
+                0x00405bbc       0x2e source/drivers/chirpmicro/src/ch_api.o
+                0x00405bbc                ch_get_amplitude
  .text.ch_get_frequency
-                0x00405b7a       0x18 source/drivers/chirpmicro/src/ch_api.o
-                0x00405b7a                ch_get_frequency
+                0x00405bea       0x18 source/drivers/chirpmicro/src/ch_api.o
+                0x00405bea                ch_get_frequency
  .text.ch_get_rtc_cal_pulselength
-                0x00405b92       0x1a source/drivers/chirpmicro/src/ch_api.o
-                0x00405b92                ch_get_rtc_cal_pulselength
+                0x00405c02       0x1a source/drivers/chirpmicro/src/ch_api.o
+                0x00405c02                ch_get_rtc_cal_pulselength
  .text.ch_get_rtc_cal_result
-                0x00405bac       0x18 source/drivers/chirpmicro/src/ch_api.o
-                0x00405bac                ch_get_rtc_cal_result
+                0x00405c1c       0x18 source/drivers/chirpmicro/src/ch_api.o
+                0x00405c1c                ch_get_rtc_cal_result
  .text.ch_get_iq_data
-                0x00405bc4       0x4c source/drivers/chirpmicro/src/ch_api.o
-                0x00405bc4                ch_get_iq_data
+                0x00405c34       0x4c source/drivers/chirpmicro/src/ch_api.o
+                0x00405c34                ch_get_iq_data
  .text.ch_samples_to_mm
-                0x00405c10       0x38 source/drivers/chirpmicro/src/ch_api.o
-                0x00405c10                ch_samples_to_mm
+                0x00405c80       0x38 source/drivers/chirpmicro/src/ch_api.o
+                0x00405c80                ch_samples_to_mm
  .text.ch_iq_to_amplitude
-                0x00405c48       0x50 source/drivers/chirpmicro/src/ch_api.o
-                0x00405c48                ch_iq_to_amplitude
+                0x00405cb8       0x50 source/drivers/chirpmicro/src/ch_api.o
+                0x00405cb8                ch_iq_to_amplitude
  .text.ch_set_thresholds
-                0x00405c98       0x3a source/drivers/chirpmicro/src/ch_api.o
-                0x00405c98                ch_set_thresholds
+                0x00405d08       0x3a source/drivers/chirpmicro/src/ch_api.o
+                0x00405d08                ch_set_thresholds
  .text.ch_get_thresholds
-                0x00405cd2       0x3a source/drivers/chirpmicro/src/ch_api.o
-                0x00405cd2                ch_get_thresholds
+                0x00405d42       0x3a source/drivers/chirpmicro/src/ch_api.o
+                0x00405d42                ch_get_thresholds
  .text.ch_set_time_plan
-                0x00405d0c       0x36 source/drivers/chirpmicro/src/ch_api.o
-                0x00405d0c                ch_set_time_plan
+                0x00405d7c       0x36 source/drivers/chirpmicro/src/ch_api.o
+                0x00405d7c                ch_set_time_plan
  .text.ch_io_int_callback_set
-                0x00405d42       0x1c source/drivers/chirpmicro/src/ch_api.o
-                0x00405d42                ch_io_int_callback_set
+                0x00405db2       0x1c source/drivers/chirpmicro/src/ch_api.o
+                0x00405db2                ch_io_int_callback_set
  .text.ch_io_complete_callback_set
-                0x00405d5e       0x1c source/drivers/chirpmicro/src/ch_api.o
-                0x00405d5e                ch_io_complete_callback_set
- *fill*         0x00405d7a        0x2 
+                0x00405dce       0x1c source/drivers/chirpmicro/src/ch_api.o
+                0x00405dce                ch_io_complete_callback_set
+ *fill*         0x00405dea        0x2 
  .text.ch_io_notify
-                0x00405d7c       0x24 source/drivers/chirpmicro/src/ch_api.o
-                0x00405d7c                ch_io_notify
+                0x00405dec       0x24 source/drivers/chirpmicro/src/ch_api.o
+                0x00405dec                ch_io_notify
  .text.ch_set_target_interrupt
-                0x00405da0       0x38 source/drivers/chirpmicro/src/ch_api.o
-                0x00405da0                ch_set_target_interrupt
+                0x00405e10       0x38 source/drivers/chirpmicro/src/ch_api.o
+                0x00405e10                ch_set_target_interrupt
  .text.ch_set_rx_pretrigger
-                0x00405dd8       0x34 source/drivers/chirpmicro/src/ch_api.o
-                0x00405dd8                ch_set_rx_pretrigger
+                0x00405e48       0x34 source/drivers/chirpmicro/src/ch_api.o
+                0x00405e48                ch_set_rx_pretrigger
  .text.ch_common_set_mode
-                0x00405e0c      0x144 source/drivers/chirpmicro/src/ch_common.o
-                0x00405e0c                ch_common_set_mode
+                0x00405e7c      0x144 source/drivers/chirpmicro/src/ch_common.o
+                0x00405e7c                ch_common_set_mode
  .text.ch_common_fw_load
-                0x00405f50       0x50 source/drivers/chirpmicro/src/ch_common.o
-                0x00405f50                ch_common_fw_load
+                0x00405fc0       0x50 source/drivers/chirpmicro/src/ch_common.o
+                0x00405fc0                ch_common_fw_load
  .text.ch_common_set_sample_interval
-                0x00405fa0       0xb8 source/drivers/chirpmicro/src/ch_common.o
-                0x00405fa0                ch_common_set_sample_interval
+                0x00406010       0xb8 source/drivers/chirpmicro/src/ch_common.o
+                0x00406010                ch_common_set_sample_interval
  .text.ch_common_set_num_samples
-                0x00406058       0x80 source/drivers/chirpmicro/src/ch_common.o
-                0x00406058                ch_common_set_num_samples
+                0x004060c8       0x80 source/drivers/chirpmicro/src/ch_common.o
+                0x004060c8                ch_common_set_num_samples
  .text.ch_common_set_max_range
-                0x004060d8       0x8c source/drivers/chirpmicro/src/ch_common.o
-                0x004060d8                ch_common_set_max_range
+                0x00406148       0x8c source/drivers/chirpmicro/src/ch_common.o
+                0x00406148                ch_common_set_max_range
  .text.ch_common_mm_to_samples
-                0x00406164       0xec source/drivers/chirpmicro/src/ch_common.o
-                0x00406164                ch_common_mm_to_samples
+                0x004061d4       0xec source/drivers/chirpmicro/src/ch_common.o
+                0x004061d4                ch_common_mm_to_samples
  .text.ch_common_samples_to_mm
-                0x00406250       0x50 source/drivers/chirpmicro/src/ch_common.o
-                0x00406250                ch_common_samples_to_mm
+                0x004062c0       0x50 source/drivers/chirpmicro/src/ch_common.o
+                0x004062c0                ch_common_samples_to_mm
  .text.ch_common_get_range
-                0x004062a0      0x118 source/drivers/chirpmicro/src/ch_common.o
-                0x004062a0                ch_common_get_range
+                0x00406310      0x118 source/drivers/chirpmicro/src/ch_common.o
+                0x00406310                ch_common_get_range
  .text.ch_common_get_amplitude
-                0x004063b8       0x44 source/drivers/chirpmicro/src/ch_common.o
-                0x004063b8                ch_common_get_amplitude
+                0x00406428       0x44 source/drivers/chirpmicro/src/ch_common.o
+                0x00406428                ch_common_get_amplitude
  .text.ch_common_get_locked_state
-                0x004063fc       0x60 source/drivers/chirpmicro/src/ch_common.o
-                0x004063fc                ch_common_get_locked_state
+                0x0040646c       0x60 source/drivers/chirpmicro/src/ch_common.o
+                0x0040646c                ch_common_get_locked_state
  .text.ch_common_prepare_pulse_timer
-                0x0040645c       0x34 source/drivers/chirpmicro/src/ch_common.o
-                0x0040645c                ch_common_prepare_pulse_timer
+                0x004064cc       0x34 source/drivers/chirpmicro/src/ch_common.o
+                0x004064cc                ch_common_prepare_pulse_timer
  .text.ch_common_store_pt_result
-                0x00406490       0x3c source/drivers/chirpmicro/src/ch_common.o
-                0x00406490                ch_common_store_pt_result
+                0x00406500       0x3c source/drivers/chirpmicro/src/ch_common.o
+                0x00406500                ch_common_store_pt_result
  .text.ch_common_store_op_freq
-                0x004064cc       0x74 source/drivers/chirpmicro/src/ch_common.o
-                0x004064cc                ch_common_store_op_freq
+                0x0040653c       0x74 source/drivers/chirpmicro/src/ch_common.o
+                0x0040653c                ch_common_store_op_freq
  .text.ch_common_store_bandwidth
-                0x00406540       0x14 source/drivers/chirpmicro/src/ch_common.o
-                0x00406540                ch_common_store_bandwidth
+                0x004065b0       0x14 source/drivers/chirpmicro/src/ch_common.o
+                0x004065b0                ch_common_store_bandwidth
  .text.ch_common_store_scale_factor
-                0x00406554       0x50 source/drivers/chirpmicro/src/ch_common.o
-                0x00406554                ch_common_store_scale_factor
+                0x004065c4       0x50 source/drivers/chirpmicro/src/ch_common.o
+                0x004065c4                ch_common_store_scale_factor
  .text.ch_common_set_thresholds
-                0x004065a4      0x114 source/drivers/chirpmicro/src/ch_common.o
-                0x004065a4                ch_common_set_thresholds
+                0x00406614      0x114 source/drivers/chirpmicro/src/ch_common.o
+                0x00406614                ch_common_set_thresholds
  .text.ch_common_get_thresholds
-                0x004066b8      0x108 source/drivers/chirpmicro/src/ch_common.o
-                0x004066b8                ch_common_get_thresholds
+                0x00406728      0x108 source/drivers/chirpmicro/src/ch_common.o
+                0x00406728                ch_common_get_thresholds
  .text.get_sample_data
-                0x004067c0      0x1e4 source/drivers/chirpmicro/src/ch_common.o
+                0x00406830      0x1e4 source/drivers/chirpmicro/src/ch_common.o
  .text.ch_common_set_sample_window
-                0x004069a4       0x52 source/drivers/chirpmicro/src/ch_common.o
-                0x004069a4                ch_common_set_sample_window
- *fill*         0x004069f6        0x2 
+                0x00406a14       0x52 source/drivers/chirpmicro/src/ch_common.o
+                0x00406a14                ch_common_set_sample_window
+ *fill*         0x00406a66        0x2 
  .text.ch_common_get_amplitude_avg
-                0x004069f8       0xd0 source/drivers/chirpmicro/src/ch_common.o
-                0x004069f8                ch_common_get_amplitude_avg
+                0x00406a68       0xd0 source/drivers/chirpmicro/src/ch_common.o
+                0x00406a68                ch_common_get_amplitude_avg
  .text.ch_common_get_iq_data
-                0x00406ac8       0x3c source/drivers/chirpmicro/src/ch_common.o
-                0x00406ac8                ch_common_get_iq_data
+                0x00406b38       0x3c source/drivers/chirpmicro/src/ch_common.o
+                0x00406b38                ch_common_get_iq_data
  .text.ch_common_get_amplitude_data
-                0x00406b04      0x140 source/drivers/chirpmicro/src/ch_common.o
-                0x00406b04                ch_common_get_amplitude_data
+                0x00406b74      0x140 source/drivers/chirpmicro/src/ch_common.o
+                0x00406b74                ch_common_get_amplitude_data
  .text.ch_common_set_rx_holdoff
-                0x00406c44       0x60 source/drivers/chirpmicro/src/ch_common.o
-                0x00406c44                ch_common_set_rx_holdoff
+                0x00406cb4       0x60 source/drivers/chirpmicro/src/ch_common.o
+                0x00406cb4                ch_common_set_rx_holdoff
  .text.ch_common_get_rx_holdoff
-                0x00406ca4       0x58 source/drivers/chirpmicro/src/ch_common.o
-                0x00406ca4                ch_common_get_rx_holdoff
+                0x00406d14       0x58 source/drivers/chirpmicro/src/ch_common.o
+                0x00406d14                ch_common_get_rx_holdoff
  .text.chdrv_prog_i2c_write
-                0x00406cfc       0x38 source/drivers/chirpmicro/src/ch_driver.o
-                0x00406cfc                chdrv_prog_i2c_write
- .text.chdrv_prog_i2c_read
-                0x00406d34       0x38 source/drivers/chirpmicro/src/ch_driver.o
-                0x00406d34                chdrv_prog_i2c_read
- .text.chdrv_prog_i2c_read_nb
                 0x00406d6c       0x38 source/drivers/chirpmicro/src/ch_driver.o
-                0x00406d6c                chdrv_prog_i2c_read_nb
- .text.chdrv_write_byte
+                0x00406d6c                chdrv_prog_i2c_write
+ .text.chdrv_prog_i2c_read
                 0x00406da4       0x38 source/drivers/chirpmicro/src/ch_driver.o
-                0x00406da4                chdrv_write_byte
+                0x00406da4                chdrv_prog_i2c_read
+ .text.chdrv_prog_i2c_read_nb
+                0x00406ddc       0x38 source/drivers/chirpmicro/src/ch_driver.o
+                0x00406ddc                chdrv_prog_i2c_read_nb
+ .text.chdrv_write_byte
+                0x00406e14       0x38 source/drivers/chirpmicro/src/ch_driver.o
+                0x00406e14                chdrv_write_byte
  .text.chdrv_write_word
-                0x00406ddc       0x44 source/drivers/chirpmicro/src/ch_driver.o
-                0x00406ddc                chdrv_write_word
+                0x00406e4c       0x44 source/drivers/chirpmicro/src/ch_driver.o
+                0x00406e4c                chdrv_write_word
  .text.chdrv_read_byte
-                0x00406e20       0x28 source/drivers/chirpmicro/src/ch_driver.o
-                0x00406e20                chdrv_read_byte
+                0x00406e90       0x28 source/drivers/chirpmicro/src/ch_driver.o
+                0x00406e90                chdrv_read_byte
  .text.chdrv_burst_read
-                0x00406e48       0x30 source/drivers/chirpmicro/src/ch_driver.o
-                0x00406e48                chdrv_burst_read
+                0x00406eb8       0x30 source/drivers/chirpmicro/src/ch_driver.o
+                0x00406eb8                chdrv_burst_read
  .text.chdrv_read_word
-                0x00406e78       0x28 source/drivers/chirpmicro/src/ch_driver.o
-                0x00406e78                chdrv_read_word
+                0x00406ee8       0x28 source/drivers/chirpmicro/src/ch_driver.o
+                0x00406ee8                chdrv_read_word
  .text.chdrv_group_measure_rtc
-                0x00406ea0      0x11c source/drivers/chirpmicro/src/ch_driver.o
-                0x00406ea0                chdrv_group_measure_rtc
+                0x00406f10      0x11c source/drivers/chirpmicro/src/ch_driver.o
+                0x00406f10                chdrv_group_measure_rtc
  .text.chdrv_group_i2c_queue
-                0x00406fbc       0x98 source/drivers/chirpmicro/src/ch_driver.o
-                0x00406fbc                chdrv_group_i2c_queue
+                0x0040702c       0x98 source/drivers/chirpmicro/src/ch_driver.o
+                0x0040702c                chdrv_group_i2c_queue
  .text.chdrv_group_i2c_irq_handler
-                0x00407054      0x29c source/drivers/chirpmicro/src/ch_driver.o
-                0x00407054                chdrv_group_i2c_irq_handler
+                0x004070c4      0x29c source/drivers/chirpmicro/src/ch_driver.o
+                0x004070c4                chdrv_group_i2c_irq_handler
  .text.chdrv_wait_for_lock
-                0x004072f0       0x68 source/drivers/chirpmicro/src/ch_driver.o
-                0x004072f0                chdrv_wait_for_lock
+                0x00407360       0x68 source/drivers/chirpmicro/src/ch_driver.o
+                0x00407360                chdrv_wait_for_lock
  .text.chdrv_group_wait_for_lock
-                0x00407358       0x54 source/drivers/chirpmicro/src/ch_driver.o
-                0x00407358                chdrv_group_wait_for_lock
+                0x004073c8       0x54 source/drivers/chirpmicro/src/ch_driver.o
+                0x004073c8                chdrv_group_wait_for_lock
  .text.chdrv_group_hw_trigger
-                0x004073ac      0x104 source/drivers/chirpmicro/src/ch_driver.o
-                0x004073ac                chdrv_group_hw_trigger
+                0x0040741c      0x104 source/drivers/chirpmicro/src/ch_driver.o
+                0x0040741c                chdrv_group_hw_trigger
  .text.chdrv_prog_write
-                0x004074b0       0x58 source/drivers/chirpmicro/src/ch_driver.o
-                0x004074b0                chdrv_prog_write
+                0x00407520       0x58 source/drivers/chirpmicro/src/ch_driver.o
+                0x00407520                chdrv_prog_write
  .text.chdrv_prog_mem_write
-                0x00407508      0x100 source/drivers/chirpmicro/src/ch_driver.o
-                0x00407508                chdrv_prog_mem_write
+                0x00407578      0x100 source/drivers/chirpmicro/src/ch_driver.o
+                0x00407578                chdrv_prog_mem_write
  .text.chdrv_prog_read
-                0x00407608       0x90 source/drivers/chirpmicro/src/ch_driver.o
+                0x00407678       0x90 source/drivers/chirpmicro/src/ch_driver.o
  .text.chdrv_write_firmware
-                0x00407698       0x4a source/drivers/chirpmicro/src/ch_driver.o
- *fill*         0x004076e2        0x2 
+                0x00407708       0x4a source/drivers/chirpmicro/src/ch_driver.o
+ *fill*         0x00407752        0x2 
  .text.chdrv_init_ram
-                0x004076e4       0x68 source/drivers/chirpmicro/src/ch_driver.o
+                0x00407754       0x68 source/drivers/chirpmicro/src/ch_driver.o
  .text.chdrv_reset_and_halt
-                0x0040774c       0x34 source/drivers/chirpmicro/src/ch_driver.o
+                0x004077bc       0x34 source/drivers/chirpmicro/src/ch_driver.o
  .text.chdrv_prog_ping
-                0x00407780       0x44 source/drivers/chirpmicro/src/ch_driver.o
-                0x00407780                chdrv_prog_ping
+                0x004077f0       0x44 source/drivers/chirpmicro/src/ch_driver.o
+                0x004077f0                chdrv_prog_ping
  .text.chdrv_detect_and_program
-                0x004077c4      0x170 source/drivers/chirpmicro/src/ch_driver.o
-                0x004077c4                chdrv_detect_and_program
+                0x00407834      0x170 source/drivers/chirpmicro/src/ch_driver.o
+                0x00407834                chdrv_detect_and_program
  .text.chdrv_set_idle
-                0x00407934       0x64 source/drivers/chirpmicro/src/ch_driver.o
-                0x00407934                chdrv_set_idle
+                0x004079a4       0x64 source/drivers/chirpmicro/src/ch_driver.o
+                0x004079a4                chdrv_set_idle
  .text.chdrv_group_detect_and_program
-                0x00407998       0x68 source/drivers/chirpmicro/src/ch_driver.o
-                0x00407998                chdrv_group_detect_and_program
+                0x00407a08       0x68 source/drivers/chirpmicro/src/ch_driver.o
+                0x00407a08                chdrv_group_detect_and_program
  .text.chdrv_group_prepare
-                0x00407a00       0xa8 source/drivers/chirpmicro/src/ch_driver.o
-                0x00407a00                chdrv_group_prepare
+                0x00407a70       0xa8 source/drivers/chirpmicro/src/ch_driver.o
+                0x00407a70                chdrv_group_prepare
  .text.chdrv_group_start
-                0x00407aa8      0x1c0 source/drivers/chirpmicro/src/ch_driver.o
-                0x00407aa8                chdrv_group_start
+                0x00407b18      0x1c0 source/drivers/chirpmicro/src/ch_driver.o
+                0x00407b18                chdrv_group_start
  .text.chdrv_pretrigger_delay_set
-                0x00407c68       0x1e source/drivers/chirpmicro/src/ch_driver.o
-                0x00407c68                chdrv_pretrigger_delay_set
+                0x00407cd8       0x1e source/drivers/chirpmicro/src/ch_driver.o
+                0x00407cd8                chdrv_pretrigger_delay_set
  .text.sqrt_int32
-                0x00407c86       0x58 source/drivers/chirpmicro/src/ch_math_utils.o
-                0x00407c86                sqrt_int32
- *fill*         0x00407cde        0x2 
+                0x00407cf6       0x58 source/drivers/chirpmicro/src/ch_math_utils.o
+                0x00407cf6                sqrt_int32
+ *fill*         0x00407d4e        0x2 
  .text.NVIC_EnableIRQ
-                0x00407ce0       0x34 source/drivers/inv/inv_i2c.o
+                0x00407d50       0x34 source/drivers/inv/inv_i2c.o
  .text.NVIC_DisableIRQ
-                0x00407d14       0x34 source/drivers/inv/inv_i2c.o
+                0x00407d84       0x34 source/drivers/inv/inv_i2c.o
  .text.NVIC_ClearPendingIRQ
-                0x00407d48       0x34 source/drivers/inv/inv_i2c.o
+                0x00407db8       0x34 source/drivers/inv/inv_i2c.o
  .text.NVIC_SetPriority
-                0x00407d7c       0x54 source/drivers/inv/inv_i2c.o
+                0x00407dec       0x54 source/drivers/inv/inv_i2c.o
  .text.osc_get_rate
-                0x00407dd0       0x74 source/drivers/inv/inv_i2c.o
+                0x00407e40       0x74 source/drivers/inv/inv_i2c.o
  .text.sysclk_get_main_hz
-                0x00407e44       0x1c source/drivers/inv/inv_i2c.o
+                0x00407eb4       0x1c source/drivers/inv/inv_i2c.o
  .text.sysclk_get_peripheral_hz
-                0x00407e60       0x14 source/drivers/inv/inv_i2c.o
+                0x00407ed0       0x14 source/drivers/inv/inv_i2c.o
  .text.i2c_master_initialize1
-                0x00407e74       0x78 source/drivers/inv/inv_i2c.o
-                0x00407e74                i2c_master_initialize1
+                0x00407ee4       0x78 source/drivers/inv/inv_i2c.o
+                0x00407ee4                i2c_master_initialize1
  .text.i2c_master_initialize3
-                0x00407eec       0x78 source/drivers/inv/inv_i2c.o
-                0x00407eec                i2c_master_initialize3
+                0x00407f5c       0x78 source/drivers/inv/inv_i2c.o
+                0x00407f5c                i2c_master_initialize3
  .text.i2c_master_init
-                0x00407f64       0x50 source/drivers/inv/inv_i2c.o
-                0x00407f64                i2c_master_init
+                0x00407fd4       0x50 source/drivers/inv/inv_i2c.o
+                0x00407fd4                i2c_master_init
  .text.i2c_master_read_register1
-                0x00407fb4       0x50 source/drivers/inv/inv_i2c.o
-                0x00407fb4                i2c_master_read_register1
+                0x00408024       0x50 source/drivers/inv/inv_i2c.o
+                0x00408024                i2c_master_read_register1
  .text.i2c_master_read_register1_raw
-                0x00408004       0x48 source/drivers/inv/inv_i2c.o
-                0x00408004                i2c_master_read_register1_raw
+                0x00408074       0x48 source/drivers/inv/inv_i2c.o
+                0x00408074                i2c_master_read_register1_raw
  .text.i2c_master_read_register3
-                0x0040804c       0x50 source/drivers/inv/inv_i2c.o
-                0x0040804c                i2c_master_read_register3
+                0x004080bc       0x50 source/drivers/inv/inv_i2c.o
+                0x004080bc                i2c_master_read_register3
  .text.i2c_master_read_register3_raw
-                0x0040809c       0x48 source/drivers/inv/inv_i2c.o
-                0x0040809c                i2c_master_read_register3_raw
+                0x0040810c       0x48 source/drivers/inv/inv_i2c.o
+                0x0040810c                i2c_master_read_register3_raw
  .text.i2c_master_write_register1
-                0x004080e4       0x48 source/drivers/inv/inv_i2c.o
-                0x004080e4                i2c_master_write_register1
+                0x00408154       0x48 source/drivers/inv/inv_i2c.o
+                0x00408154                i2c_master_write_register1
  .text.i2c_master_write_register1_raw
-                0x0040812c       0x40 source/drivers/inv/inv_i2c.o
-                0x0040812c                i2c_master_write_register1_raw
+                0x0040819c       0x40 source/drivers/inv/inv_i2c.o
+                0x0040819c                i2c_master_write_register1_raw
  .text.i2c_master_write_register3
-                0x0040816c       0x48 source/drivers/inv/inv_i2c.o
-                0x0040816c                i2c_master_write_register3
+                0x004081dc       0x48 source/drivers/inv/inv_i2c.o
+                0x004081dc                i2c_master_write_register3
  .text.i2c_master_write_register3_raw
-                0x004081b4       0x40 source/drivers/inv/inv_i2c.o
-                0x004081b4                i2c_master_write_register3_raw
+                0x00408224       0x40 source/drivers/inv/inv_i2c.o
+                0x00408224                i2c_master_write_register3_raw
  .text.osc_get_rate
-                0x004081f4       0x74 source/drivers/inv/inv_uart.o
+                0x00408264       0x74 source/drivers/inv/inv_uart.o
  .text.sysclk_get_main_hz
-                0x00408268       0x1c source/drivers/inv/inv_uart.o
+                0x004082d8       0x1c source/drivers/inv/inv_uart.o
  .text.sysclk_get_peripheral_hz
-                0x00408284       0x14 source/drivers/inv/inv_uart.o
+                0x004082f4       0x14 source/drivers/inv/inv_uart.o
  .text.sysclk_enable_peripheral_clock
-                0x00408298       0x1c source/drivers/inv/inv_uart.o
+                0x00408308       0x1c source/drivers/inv/inv_uart.o
  .text.ioport_disable_pin
-                0x004082b4       0x4a source/drivers/inv/inv_uart.o
+                0x00408324       0x4a source/drivers/inv/inv_uart.o
  .text.ioport_disable_port
-                0x004082fe       0x34 source/drivers/inv/inv_uart.o
+                0x0040836e       0x34 source/drivers/inv/inv_uart.o
  .text.ioport_set_port_mode
-                0x00408332      0x102 source/drivers/inv/inv_uart.o
+                0x004083a2      0x102 source/drivers/inv/inv_uart.o
  .text.ioport_set_pin_mode
-                0x00408434      0x11c source/drivers/inv/inv_uart.o
+                0x004084a4      0x11c source/drivers/inv/inv_uart.o
  .text.usart_serial_init
-                0x00408550      0x228 source/drivers/inv/inv_uart.o
+                0x004085c0      0x228 source/drivers/inv/inv_uart.o
  .text.usart_serial_putchar
-                0x00408778      0x12c source/drivers/inv/inv_uart.o
+                0x004087e8      0x12c source/drivers/inv/inv_uart.o
  .text.usart_serial_getchar
-                0x004088a4      0x15c source/drivers/inv/inv_uart.o
+                0x00408914      0x15c source/drivers/inv/inv_uart.o
  .text.stdio_serial_init
-                0x00408a00       0x68 source/drivers/inv/inv_uart.o
+                0x00408a70       0x68 source/drivers/inv/inv_uart.o
  .text.configure_console
-                0x00408a68       0x9c source/drivers/inv/inv_uart.o
-                0x00408a68                configure_console
+                0x00408ad8       0x9c source/drivers/inv/inv_uart.o
+                0x00408ad8                configure_console
  .text.__libc_init_array
-                0x00408b04       0x48 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-init.o)
-                0x00408b04                __libc_init_array
- .text.memcpy   0x00408b4c       0x16 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-memcpy-stub.o)
-                0x00408b4c                memcpy
- .text.memset   0x00408b62       0x10 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-memset.o)
-                0x00408b62                memset
- .text.__cvt    0x00408b72       0xb8 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-nano-vfprintf_float.o)
-                0x00408b72                __cvt
+                0x00408b74       0x48 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-init.o)
+                0x00408b74                __libc_init_array
+ .text.memcpy   0x00408bbc       0x16 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-memcpy-stub.o)
+                0x00408bbc                memcpy
+ .text.memset   0x00408bd2       0x10 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-memset.o)
+                0x00408bd2                memset
+ .text.__cvt    0x00408be2       0xb8 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-nano-vfprintf_float.o)
+                0x00408be2                __cvt
  .text.__exponent
-                0x00408c2a       0x6a c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-nano-vfprintf_float.o)
-                0x00408c2a                __exponent
+                0x00408c9a       0x6a c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-nano-vfprintf_float.o)
+                0x00408c9a                __exponent
  .text._printf_float
-                0x00408c94      0x470 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-nano-vfprintf_float.o)
-                0x00408c94                _printf_float
+                0x00408d04      0x470 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-nano-vfprintf_float.o)
+                0x00408d04                _printf_float
  .text._printf_common
-                0x00409104       0xec c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-nano-vfprintf_i.o)
-                0x00409104                _printf_common
+                0x00409174       0xec c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-nano-vfprintf_i.o)
+                0x00409174                _printf_common
  .text._printf_i
-                0x004091f0      0x240 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-nano-vfprintf_i.o)
-                0x004091f0                _printf_i
- .text.printf   0x00409430       0x30 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-printf.o)
-                0x00409430                iprintf
-                0x00409430                printf
- .text.setbuf   0x00409460       0x10 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-setbuf.o)
-                0x00409460                setbuf
- .text.setvbuf  0x00409470      0x15c c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-setvbuf.o)
-                0x00409470                setvbuf
- .text          0x004095cc       0x10 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-strlen.o)
-                0x004095cc                strlen
- .text.quorem   0x004095dc      0x118 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-dtoa.o)
- *fill*         0x004096f4        0x4 
- .text._dtoa_r  0x004096f8      0xba4 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-dtoa.o)
-                0x004096f8                _dtoa_r
+                0x00409260      0x240 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-nano-vfprintf_i.o)
+                0x00409260                _printf_i
+ .text.printf   0x004094a0       0x30 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-printf.o)
+                0x004094a0                iprintf
+                0x004094a0                printf
+ .text.setbuf   0x004094d0       0x10 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-setbuf.o)
+                0x004094d0                setbuf
+ .text.setvbuf  0x004094e0      0x15c c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-setvbuf.o)
+                0x004094e0                setvbuf
+ .text          0x0040963c       0x10 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-strlen.o)
+                0x0040963c                strlen
+ .text.quorem   0x0040964c      0x118 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-dtoa.o)
+ *fill*         0x00409764        0x4 
+ .text._dtoa_r  0x00409768      0xba4 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-dtoa.o)
+                0x00409768                _dtoa_r
  .text.__sflush_r
-                0x0040a29c      0x110 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-fflush.o)
-                0x0040a29c                __sflush_r
+                0x0040a30c      0x110 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-fflush.o)
+                0x0040a30c                __sflush_r
  .text._fflush_r
-                0x0040a3ac       0x54 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-fflush.o)
-                0x0040a3ac                _fflush_r
+                0x0040a41c       0x54 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-fflush.o)
+                0x0040a41c                _fflush_r
  .text._cleanup_r
-                0x0040a400        0xc c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-findfp.o)
-                0x0040a400                _cleanup_r
+                0x0040a470        0xc c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-findfp.o)
+                0x0040a470                _cleanup_r
  .text.std.isra.0
-                0x0040a40c       0x48 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-findfp.o)
+                0x0040a47c       0x48 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-findfp.o)
  .text.__sfmoreglue
-                0x0040a454       0x2c c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-findfp.o)
-                0x0040a454                __sfmoreglue
- .text.__sinit  0x0040a480       0x60 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-findfp.o)
-                0x0040a480                __sinit
- .text.__sfp    0x0040a4e0       0x78 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-findfp.o)
-                0x0040a4e0                __sfp
+                0x0040a4c4       0x2c c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-findfp.o)
+                0x0040a4c4                __sfmoreglue
+ .text.__sinit  0x0040a4f0       0x60 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-findfp.o)
+                0x0040a4f0                __sinit
+ .text.__sfp    0x0040a550       0x78 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-findfp.o)
+                0x0040a550                __sfp
  .text._fwalk_reent
-                0x0040a558       0x3c c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-fwalk.o)
-                0x0040a558                _fwalk_reent
+                0x0040a5c8       0x3c c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-fwalk.o)
+                0x0040a5c8                _fwalk_reent
  .text._localeconv_r
-                0x0040a594       0x1c c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-localeconv.o)
-                0x0040a594                _localeconv_r
+                0x0040a604       0x1c c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-localeconv.o)
+                0x0040a604                _localeconv_r
  .text.__swhatbuf_r
-                0x0040a5b0       0x48 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-makebuf.o)
-                0x0040a5b0                __swhatbuf_r
+                0x0040a620       0x48 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-makebuf.o)
+                0x0040a620                __swhatbuf_r
  .text.__smakebuf_r
-                0x0040a5f8       0x80 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-makebuf.o)
-                0x0040a5f8                __smakebuf_r
- .text.malloc   0x0040a678       0x10 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-malloc.o)
-                0x0040a678                malloc
- *fill*         0x0040a688        0x8 
- .text          0x0040a690       0xa0 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-memchr.o)
-                0x0040a690                memchr
- .text._Balloc  0x0040a730       0x68 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-mprec.o)
-                0x0040a730                _Balloc
- .text._Bfree   0x0040a798       0x2e c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-mprec.o)
-                0x0040a798                _Bfree
+                0x0040a668       0x80 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-makebuf.o)
+                0x0040a668                __smakebuf_r
+ .text.malloc   0x0040a6e8       0x10 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-malloc.o)
+                0x0040a6e8                malloc
+ *fill*         0x0040a6f8        0x8 
+ .text          0x0040a700       0xa0 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-memchr.o)
+                0x0040a700                memchr
+ .text._Balloc  0x0040a7a0       0x68 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-mprec.o)
+                0x0040a7a0                _Balloc
+ .text._Bfree   0x0040a808       0x2e c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-mprec.o)
+                0x0040a808                _Bfree
  .text.__multadd
-                0x0040a7c6       0x76 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-mprec.o)
-                0x0040a7c6                __multadd
+                0x0040a836       0x76 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-mprec.o)
+                0x0040a836                __multadd
  .text.__hi0bits
-                0x0040a83c       0x3e c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-mprec.o)
-                0x0040a83c                __hi0bits
+                0x0040a8ac       0x3e c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-mprec.o)
+                0x0040a8ac                __hi0bits
  .text.__lo0bits
-                0x0040a87a       0x5e c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-mprec.o)
-                0x0040a87a                __lo0bits
- .text.__i2b    0x0040a8d8       0x12 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-mprec.o)
-                0x0040a8d8                __i2b
+                0x0040a8ea       0x5e c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-mprec.o)
+                0x0040a8ea                __lo0bits
+ .text.__i2b    0x0040a948       0x12 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-mprec.o)
+                0x0040a948                __i2b
  .text.__multiply
-                0x0040a8ea      0x11a c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-mprec.o)
-                0x0040a8ea                __multiply
+                0x0040a95a      0x11a c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-mprec.o)
+                0x0040a95a                __multiply
  .text.__pow5mult
-                0x0040aa04       0x9c c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-mprec.o)
-                0x0040aa04                __pow5mult
+                0x0040aa74       0x9c c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-mprec.o)
+                0x0040aa74                __pow5mult
  .text.__lshift
-                0x0040aaa0       0xa2 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-mprec.o)
-                0x0040aaa0                __lshift
- .text.__mcmp   0x0040ab42       0x34 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-mprec.o)
-                0x0040ab42                __mcmp
- .text.__mdiff  0x0040ab76       0xbc c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-mprec.o)
-                0x0040ab76                __mdiff
- .text.__d2b    0x0040ac32       0x9e c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-mprec.o)
-                0x0040ac32                __d2b
+                0x0040ab10       0xa2 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-mprec.o)
+                0x0040ab10                __lshift
+ .text.__mcmp   0x0040abb2       0x34 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-mprec.o)
+                0x0040abb2                __mcmp
+ .text.__mdiff  0x0040abe6       0xbc c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-mprec.o)
+                0x0040abe6                __mdiff
+ .text.__d2b    0x0040aca2       0x9e c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-mprec.o)
+                0x0040aca2                __d2b
  .text._calloc_r
-                0x0040acd0       0x1c c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-nano-callocr.o)
-                0x0040acd0                _calloc_r
- .text._free_r  0x0040acec       0x9c c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-nano-freer.o)
-                0x0040acec                _free_r
+                0x0040ad40       0x1c c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-nano-callocr.o)
+                0x0040ad40                _calloc_r
+ .text._free_r  0x0040ad5c       0x9c c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-nano-freer.o)
+                0x0040ad5c                _free_r
  .text._malloc_r
-                0x0040ad88       0xbc c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-nano-mallocr.o)
-                0x0040ad88                _malloc_r
+                0x0040adf8       0xbc c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-nano-mallocr.o)
+                0x0040adf8                _malloc_r
  .text.__sfputc_r
-                0x0040ae44       0x2c c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-nano-vfprintf.o)
+                0x0040aeb4       0x2c c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-nano-vfprintf.o)
  .text.__sfputs_r
-                0x0040ae70       0x24 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-nano-vfprintf.o)
-                0x0040ae70                __sfputs_r
+                0x0040aee0       0x24 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-nano-vfprintf.o)
+                0x0040aee0                __sfputs_r
  .text._vfprintf_r
-                0x0040ae94      0x22c c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-nano-vfprintf.o)
-                0x0040ae94                _vfprintf_r
-                0x0040ae94                _vfiprintf_r
- .text._sbrk_r  0x0040b0c0       0x20 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-sbrkr.o)
-                0x0040b0c0                _sbrk_r
- .text.__sread  0x0040b0e0       0x22 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-stdio.o)
-                0x0040b0e0                __sread
+                0x0040af04      0x22c c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-nano-vfprintf.o)
+                0x0040af04                _vfprintf_r
+                0x0040af04                _vfiprintf_r
+ .text._sbrk_r  0x0040b130       0x20 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-sbrkr.o)
+                0x0040b130                _sbrk_r
+ .text.__sread  0x0040b150       0x22 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-stdio.o)
+                0x0040b150                __sread
  .text.__swrite
-                0x0040b102       0x38 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-stdio.o)
-                0x0040b102                __swrite
- .text.__sseek  0x0040b13a       0x24 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-stdio.o)
-                0x0040b13a                __sseek
+                0x0040b172       0x38 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-stdio.o)
+                0x0040b172                __swrite
+ .text.__sseek  0x0040b1aa       0x24 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-stdio.o)
+                0x0040b1aa                __sseek
  .text.__sclose
-                0x0040b15e        0x8 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-stdio.o)
-                0x0040b15e                __sclose
- *fill*         0x0040b166        0x2 
+                0x0040b1ce        0x8 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-stdio.o)
+                0x0040b1ce                __sclose
+ *fill*         0x0040b1d6        0x2 
  .text.__swbuf_r
-                0x0040b168       0xa4 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-wbuf.o)
-                0x0040b168                __swbuf_r
+                0x0040b1d8       0xa4 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-wbuf.o)
+                0x0040b1d8                __swbuf_r
  .text._write_r
-                0x0040b20c       0x24 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-writer.o)
-                0x0040b20c                _write_r
+                0x0040b27c       0x24 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-writer.o)
+                0x0040b27c                _write_r
  .text.__swsetup_r
-                0x0040b230       0xdc c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-wsetup.o)
-                0x0040b230                __swsetup_r
+                0x0040b2a0       0xdc c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-wsetup.o)
+                0x0040b2a0                __swsetup_r
  .text._close_r
-                0x0040b30c       0x20 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-closer.o)
-                0x0040b30c                _close_r
+                0x0040b37c       0x20 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-closer.o)
+                0x0040b37c                _close_r
  .text._fstat_r
-                0x0040b32c       0x24 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-fstatr.o)
-                0x0040b32c                _fstat_r
+                0x0040b39c       0x24 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-fstatr.o)
+                0x0040b39c                _fstat_r
  .text._isatty_r
-                0x0040b350       0x20 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-isattyr.o)
-                0x0040b350                _isatty_r
+                0x0040b3c0       0x20 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-isattyr.o)
+                0x0040b3c0                _isatty_r
  .text._lseek_r
-                0x0040b370       0x24 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-lseekr.o)
-                0x0040b370                _lseek_r
+                0x0040b3e0       0x24 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-lseekr.o)
+                0x0040b3e0                _lseek_r
  .text.__ascii_mbtowc
-                0x0040b394       0x24 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-mbtowc_r.o)
-                0x0040b394                __ascii_mbtowc
+                0x0040b404       0x24 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-mbtowc_r.o)
+                0x0040b404                __ascii_mbtowc
  .text.__malloc_lock
-                0x0040b3b8        0x2 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-mlock.o)
-                0x0040b3b8                __malloc_lock
+                0x0040b428        0x2 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-mlock.o)
+                0x0040b428                __malloc_lock
  .text.__malloc_unlock
-                0x0040b3ba        0x2 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-mlock.o)
-                0x0040b3ba                __malloc_unlock
- .text._read_r  0x0040b3bc       0x24 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-readr.o)
-                0x0040b3bc                _read_r
+                0x0040b42a        0x2 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-mlock.o)
+                0x0040b42a                __malloc_unlock
+ .text._read_r  0x0040b42c       0x24 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-readr.o)
+                0x0040b42c                _read_r
  .text.__ascii_wctomb
-                0x0040b3e0       0x1a c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-wctomb_r.o)
-                0x0040b3e0                __ascii_wctomb
- *fill*         0x0040b3fa        0x2 
- .text          0x0040b3fc      0x370 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m\libgcc.a(_arm_addsubdf3.o)
-                0x0040b3fc                __aeabi_drsub
-                0x0040b404                __aeabi_dsub
-                0x0040b404                __subdf3
-                0x0040b408                __aeabi_dadd
-                0x0040b408                __adddf3
-                0x0040b680                __floatunsidf
-                0x0040b680                __aeabi_ui2d
-                0x0040b6a0                __floatsidf
-                0x0040b6a0                __aeabi_i2d
-                0x0040b6c4                __aeabi_f2d
-                0x0040b6c4                __extendsfdf2
-                0x0040b700                __floatundidf
-                0x0040b700                __aeabi_ul2d
-                0x0040b710                __floatdidf
-                0x0040b710                __aeabi_l2d
- .text          0x0040b76c      0x424 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m\libgcc.a(_arm_muldivdf3.o)
-                0x0040b76c                __aeabi_dmul
-                0x0040b76c                __muldf3
-                0x0040b9c0                __divdf3
-                0x0040b9c0                __aeabi_ddiv
- .text          0x0040bb90      0x110 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m\libgcc.a(_arm_cmpdf2.o)
-                0x0040bb90                __gtdf2
-                0x0040bb90                __gedf2
-                0x0040bb98                __ltdf2
-                0x0040bb98                __ledf2
-                0x0040bba0                __nedf2
-                0x0040bba0                __eqdf2
-                0x0040bba0                __cmpdf2
-                0x0040bc1c                __aeabi_cdrcmple
-                0x0040bc2c                __aeabi_cdcmpeq
-                0x0040bc2c                __aeabi_cdcmple
-                0x0040bc3c                __aeabi_dcmpeq
-                0x0040bc50                __aeabi_dcmplt
-                0x0040bc64                __aeabi_dcmple
-                0x0040bc78                __aeabi_dcmpge
-                0x0040bc8c                __aeabi_dcmpgt
- .text          0x0040bca0       0x2c c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m\libgcc.a(_arm_unorddf2.o)
-                0x0040bca0                __unorddf2
-                0x0040bca0                __aeabi_dcmpun
- .text          0x0040bccc       0x50 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m\libgcc.a(_arm_fixdfsi.o)
-                0x0040bccc                __aeabi_d2iz
-                0x0040bccc                __fixdfsi
- .text          0x0040bd1c       0x40 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m\libgcc.a(_arm_fixunsdfsi.o)
-                0x0040bd1c                __aeabi_d2uiz
-                0x0040bd1c                __fixunsdfsi
- .text          0x0040bd5c       0x30 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m\libgcc.a(_aeabi_uldivmod.o)
-                0x0040bd5c                __aeabi_uldivmod
- .text          0x0040bd8c      0x2dc c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m\libgcc.a(_udivmoddi4.o)
-                0x0040bd8c                __udivmoddi4
- .text          0x0040c068        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m\libgcc.a(_dvmd_tls.o)
-                0x0040c068                __aeabi_idiv0
-                0x0040c068                __aeabi_ldiv0
+                0x0040b450       0x1a c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-wctomb_r.o)
+                0x0040b450                __ascii_wctomb
+ *fill*         0x0040b46a        0x2 
+ .text          0x0040b46c      0x370 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m\libgcc.a(_arm_addsubdf3.o)
+                0x0040b46c                __aeabi_drsub
+                0x0040b474                __aeabi_dsub
+                0x0040b474                __subdf3
+                0x0040b478                __aeabi_dadd
+                0x0040b478                __adddf3
+                0x0040b6f0                __floatunsidf
+                0x0040b6f0                __aeabi_ui2d
+                0x0040b710                __floatsidf
+                0x0040b710                __aeabi_i2d
+                0x0040b734                __aeabi_f2d
+                0x0040b734                __extendsfdf2
+                0x0040b770                __floatundidf
+                0x0040b770                __aeabi_ul2d
+                0x0040b780                __floatdidf
+                0x0040b780                __aeabi_l2d
+ .text          0x0040b7dc      0x424 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m\libgcc.a(_arm_muldivdf3.o)
+                0x0040b7dc                __aeabi_dmul
+                0x0040b7dc                __muldf3
+                0x0040ba30                __divdf3
+                0x0040ba30                __aeabi_ddiv
+ .text          0x0040bc00      0x110 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m\libgcc.a(_arm_cmpdf2.o)
+                0x0040bc00                __gtdf2
+                0x0040bc00                __gedf2
+                0x0040bc08                __ltdf2
+                0x0040bc08                __ledf2
+                0x0040bc10                __nedf2
+                0x0040bc10                __eqdf2
+                0x0040bc10                __cmpdf2
+                0x0040bc8c                __aeabi_cdrcmple
+                0x0040bc9c                __aeabi_cdcmpeq
+                0x0040bc9c                __aeabi_cdcmple
+                0x0040bcac                __aeabi_dcmpeq
+                0x0040bcc0                __aeabi_dcmplt
+                0x0040bcd4                __aeabi_dcmple
+                0x0040bce8                __aeabi_dcmpge
+                0x0040bcfc                __aeabi_dcmpgt
+ .text          0x0040bd10       0x2c c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m\libgcc.a(_arm_unorddf2.o)
+                0x0040bd10                __unorddf2
+                0x0040bd10                __aeabi_dcmpun
+ .text          0x0040bd3c       0x50 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m\libgcc.a(_arm_fixdfsi.o)
+                0x0040bd3c                __aeabi_d2iz
+                0x0040bd3c                __fixdfsi
+ .text          0x0040bd8c       0x40 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m\libgcc.a(_arm_fixunsdfsi.o)
+                0x0040bd8c                __aeabi_d2uiz
+                0x0040bd8c                __fixunsdfsi
+ .text          0x0040bdcc       0x30 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m\libgcc.a(_aeabi_uldivmod.o)
+                0x0040bdcc                __aeabi_uldivmod
+ .text          0x0040bdfc      0x2dc c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m\libgcc.a(_udivmoddi4.o)
+                0x0040bdfc                __udivmoddi4
+ .text          0x0040c0d8        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m\libgcc.a(_dvmd_tls.o)
+                0x0040c0d8                __aeabi_idiv0
+                0x0040c0d8                __aeabi_ldiv0
  *(.glue_7t)
- .glue_7t       0x0040c06c        0x0 linker stubs
+ .glue_7t       0x0040c0dc        0x0 linker stubs
  *(.glue_7)
- .glue_7        0x0040c06c        0x0 linker stubs
+ .glue_7        0x0040c0dc        0x0 linker stubs
  *(.rodata .rodata* .gnu.linkonce.r.*)
- .rodata        0x0040c06c      0x325 source/application/smartsonic-hellochirp-example/main.o
- *fill*         0x0040c391        0x3 
- .rodata        0x0040c394       0x6f source/board/HAL/src/chbsp_chirp_samg55.o
- *fill*         0x0040c403        0x1 
+ .rodata        0x0040c0dc      0x339 source/application/smartsonic-hellochirp-example/main.o
+ *fill*         0x0040c415        0x3 
+ .rodata        0x0040c418       0x6f source/board/HAL/src/chbsp_chirp_samg55.o
+ *fill*         0x0040c487        0x1 
  .rodata.adc_interrupt_mask
-                0x0040c404       0x60 source/board/sam/drivers/adc/adc2.o
-                0x0040c404                adc_interrupt_mask
- .rodata        0x0040c464       0x10 source/drivers/chirpmicro/src/ch201_gprmt_fw.o
+                0x0040c488       0x60 source/board/sam/drivers/adc/adc2.o
+                0x0040c488                adc_interrupt_mask
+ .rodata        0x0040c4e8       0x10 source/drivers/chirpmicro/src/ch201_gprmt_fw.o
  .rodata.ram_ch201_gprmt_init
-                0x0040c474       0x1c source/drivers/chirpmicro/src/ch201_gprmt_fw.o
-                0x0040c474                ram_ch201_gprmt_init
+                0x0040c4f8       0x1c source/drivers/chirpmicro/src/ch201_gprmt_fw.o
+                0x0040c4f8                ram_ch201_gprmt_init
  .rodata.ch201_gprmt_fw
-                0x0040c490      0x800 source/drivers/chirpmicro/src/ch201_gprmt_fw.o
-                0x0040c490                ch201_gprmt_fw
- .rodata        0x0040cc90        0x2 source/drivers/chirpmicro/src/ch_common.o
- *fill*         0x0040cc92        0x2 
- .rodata        0x0040cc94        0xc source/drivers/chirpmicro/src/ch_driver.o
- .rodata        0x0040cca0       0x10 source/drivers/inv/inv_uart.o
+                0x0040c514      0x800 source/drivers/chirpmicro/src/ch201_gprmt_fw.o
+                0x0040c514                ch201_gprmt_fw
+ .rodata        0x0040cd14        0x2 source/drivers/chirpmicro/src/ch_common.o
+ *fill*         0x0040cd16        0x2 
+ .rodata        0x0040cd18        0xc source/drivers/chirpmicro/src/ch_driver.o
+ .rodata        0x0040cd24       0x10 source/drivers/inv/inv_uart.o
  .rodata._global_impure_ptr
-                0x0040ccb0        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-impure.o)
-                0x0040ccb0                _global_impure_ptr
+                0x0040cd34        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-impure.o)
+                0x0040cd34                _global_impure_ptr
  .rodata._printf_float.str1.1
-                0x0040ccb4       0x12 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-nano-vfprintf_float.o)
+                0x0040cd38       0x12 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-nano-vfprintf_float.o)
  .rodata._printf_i.str1.1
-                0x0040ccc6       0x22 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-nano-vfprintf_i.o)
+                0x0040cd4a       0x22 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-nano-vfprintf_i.o)
  .rodata._dtoa_r.str1.1
-                0x0040cce8        0xd c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-dtoa.o)
+                0x0040cd6c        0xd c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-dtoa.o)
                                   0xf (size before relaxing)
- *fill*         0x0040ccf5        0x3 
+ *fill*         0x0040cd79        0x3 
  .rodata.__sf_fake_stderr
-                0x0040ccf8       0x20 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-findfp.o)
-                0x0040ccf8                __sf_fake_stderr
+                0x0040cd7c       0x20 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-findfp.o)
+                0x0040cd7c                __sf_fake_stderr
  .rodata.__sf_fake_stdin
-                0x0040cd18       0x20 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-findfp.o)
-                0x0040cd18                __sf_fake_stdin
+                0x0040cd9c       0x20 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-findfp.o)
+                0x0040cd9c                __sf_fake_stdin
  .rodata.__sf_fake_stdout
-                0x0040cd38       0x20 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-findfp.o)
-                0x0040cd38                __sf_fake_stdout
+                0x0040cdbc       0x20 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-findfp.o)
+                0x0040cdbc                __sf_fake_stdout
+ *fill*         0x0040cddc        0x4 
  .rodata.__mprec_bigtens
-                0x0040cd58       0x28 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-mprec.o)
-                0x0040cd58                __mprec_bigtens
+                0x0040cde0       0x28 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-mprec.o)
+                0x0040cde0                __mprec_bigtens
  .rodata.__mprec_tens
-                0x0040cd80       0xc8 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-mprec.o)
-                0x0040cd80                __mprec_tens
+                0x0040ce08       0xc8 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-mprec.o)
+                0x0040ce08                __mprec_tens
  .rodata.p05.6047
-                0x0040ce48        0xc c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-mprec.o)
+                0x0040ced0        0xc c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-mprec.o)
  .rodata._vfprintf_r.str1.1
-                0x0040ce54       0x11 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-nano-vfprintf.o)
+                0x0040cedc       0x11 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-nano-vfprintf.o)
  .rodata._setlocale_r.str1.1
-                0x0040ce65        0x8 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-locale.o)
+                0x0040ceed        0x8 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-locale.o)
                                   0x9 (size before relaxing)
  .rodata.str1.1
-                0x0040ce6d        0x2 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-locale.o)
+                0x0040cef5        0x2 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-locale.o)
  .rodata._ctype_
-                0x0040ce6f      0x101 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-ctype_.o)
-                0x0040ce6f                _ctype_
+                0x0040cef7      0x101 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-ctype_.o)
+                0x0040cef7                _ctype_
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x0040cf70                . = ALIGN (0x4)
+                0x0040cff8                . = ALIGN (0x4)
  *(.init)
- .init          0x0040cf70        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/crti.o
-                0x0040cf70                _init
- .init          0x0040cf74        0x8 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/crtn.o
-                0x0040cf7c                . = ALIGN (0x4)
-                0x0040cf7c                __preinit_array_start = .
+ .init          0x0040cff8        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/crti.o
+                0x0040cff8                _init
+ .init          0x0040cffc        0x8 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/crtn.o
+                0x0040d004                . = ALIGN (0x4)
+                0x0040d004                __preinit_array_start = .
  *(.preinit_array)
-                0x0040cf7c                __preinit_array_end = .
-                0x0040cf7c                . = ALIGN (0x4)
-                0x0040cf7c                __init_array_start = .
+                0x0040d004                __preinit_array_end = .
+                0x0040d004                . = ALIGN (0x4)
+                0x0040d004                __init_array_start = .
  *(SORT(.init_array.*))
  *(.init_array)
- .init_array    0x0040cf7c        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/crtbegin.o
-                0x0040cf80                __init_array_end = .
-                0x0040cf80                . = ALIGN (0x4)
+ .init_array    0x0040d004        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/crtbegin.o
+                0x0040d008                __init_array_end = .
+                0x0040d008                . = ALIGN (0x4)
  *crtbegin.o(.ctors)
  *(EXCLUDE_FILE(*crtend.o) .ctors)
  *(SORT(.ctors.*))
  *crtend.o(.ctors)
-                0x0040cf80                . = ALIGN (0x4)
+                0x0040d008                . = ALIGN (0x4)
  *(.fini)
- .fini          0x0040cf80        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/crti.o
-                0x0040cf80                _fini
- .fini          0x0040cf84        0x8 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/crtn.o
-                0x0040cf8c                . = ALIGN (0x4)
-                0x0040cf8c                __fini_array_start = .
+ .fini          0x0040d008        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/crti.o
+                0x0040d008                _fini
+ .fini          0x0040d00c        0x8 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/crtn.o
+                0x0040d014                . = ALIGN (0x4)
+                0x0040d014                __fini_array_start = .
  *(.fini_array)
- .fini_array    0x0040cf8c        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/crtbegin.o
+ .fini_array    0x0040d014        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/crtbegin.o
  *(SORT(.fini_array.*))
-                0x0040cf90                __fini_array_end = .
+                0x0040d018                __fini_array_end = .
  *crtbegin.o(.dtors)
  *(EXCLUDE_FILE(*crtend.o) .dtors)
  *(SORT(.dtors.*))
  *crtend.o(.dtors)
-                0x0040cf90                . = ALIGN (0x4)
-                0x0040cf90                _efixed = .
+                0x0040d018                . = ALIGN (0x4)
+                0x0040d018                _efixed = .
                 [!provide]                PROVIDE (__exidx_start, .)
 
-.vfp11_veneer   0x0040cf90        0x0
- .vfp11_veneer  0x0040cf90        0x0 linker stubs
+.vfp11_veneer   0x0040d018        0x0
+ .vfp11_veneer  0x0040d018        0x0 linker stubs
 
-.v4_bx          0x0040cf90        0x0
- .v4_bx         0x0040cf90        0x0 linker stubs
+.v4_bx          0x0040d018        0x0
+ .v4_bx         0x0040d018        0x0 linker stubs
 
-.iplt           0x0040cf90        0x0
- .iplt          0x0040cf90        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/crtbegin.o
+.iplt           0x0040d018        0x0
+ .iplt          0x0040d018        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/crtbegin.o
 
-.ARM.exidx      0x0040cf90        0x8
+.ARM.exidx      0x0040d018        0x8
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
- .ARM.exidx     0x0040cf90        0x8 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m\libgcc.a(_udivmoddi4.o)
+ .ARM.exidx     0x0040d018        0x8 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m\libgcc.a(_udivmoddi4.o)
                 [!provide]                PROVIDE (__exidx_end, .)
 
-.eh_frame       0x0040cf98        0x0
- .eh_frame      0x0040cf98        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/crtbegin.o
+.eh_frame       0x0040d020        0x0
+ .eh_frame      0x0040d020        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/crtbegin.o
 
-.rel.dyn        0x0040cf98        0x0
- .rel.iplt      0x0040cf98        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/crtbegin.o
+.rel.dyn        0x0040d020        0x0
+ .rel.iplt      0x0040d020        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/crtbegin.o
 
-.jcr            0x0040cf98        0x0
- .jcr           0x0040cf98        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/crtbegin.o
+.jcr            0x0040d020        0x0
+ .jcr           0x0040d020        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/crtbegin.o
 
-.igot.plt       0x0040cf98        0x0
- .igot.plt      0x0040cf98        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/crtbegin.o
-                0x0040cf98                . = ALIGN (0x4)
-                0x0040cf98                _etext = .
+.igot.plt       0x0040d020        0x0
+ .igot.plt      0x0040d020        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/crtbegin.o
+                0x0040d020                . = ALIGN (0x4)
+                0x0040d020                _etext = .
 
-.relocate       0x20000000      0x348 load address 0x0040cf98
+.relocate       0x20000000      0x348 load address 0x0040d020
                 0x20000000                . = ALIGN (0x4)
                 0x20000000                _srelocate = .
  *(.ramfunc .ramfunc.*)
@@ -2989,7 +2994,7 @@ LOAD c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin
                 0x20000348                . = ALIGN (0x4)
                 0x20000348                _erelocate = .
 
-.bss            0x20000348      0x5e8 load address 0x0040d2e0
+.bss            0x20000348      0x5e8 load address 0x0040d368
                 0x20000348                . = ALIGN (0x4)
                 0x20000348                _sbss = .
                 0x20000348                _szero = .
@@ -3080,7 +3085,7 @@ LOAD c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin
                 0x20000930                _ebss = .
                 0x20000930                _ezero = .
 
-.stack          0x20000930     0x3000 load address 0x0040d8c8
+.stack          0x20000930     0x3000 load address 0x0040d950
                 0x20000930                . = ALIGN (0x8)
                 0x20000930                _sstack = .
                 0x20003930                . = (. + __stack_size__)
@@ -3310,44 +3315,44 @@ OUTPUT(smartsonic-hellochirp-example.elf elf32-littlearm)
  .comment       0x00000059       0x5a source/drivers/inv/inv_i2c.o
  .comment       0x00000059       0x5a source/drivers/inv/inv_uart.o
 
-.debug_info     0x00000000    0x34ef4
- .debug_info    0x00000000     0x1f6d source/application/smartsonic-hellochirp-example/main.o
- .debug_info    0x00001f6d       0xbb source/utils/src/time.o
- .debug_info    0x00002028     0x1372 source/board/common/services/clock/samg/sysclk.o
- .debug_info    0x0000339a      0xa41 source/board/common/services/delay/sam/cycle_counter.o
- .debug_info    0x00003ddb      0xa8a source/board/common/services/sleepmgr/sam/sleepmgr.o
- .debug_info    0x00004865      0xb02 source/board/common/utils/interrupt/interrupt_sam_nvic.o
- .debug_info    0x00005367      0xab5 source/board/common/utils/stdio/read.o
- .debug_info    0x00005e1c      0xabe source/board/common/utils/stdio/write.o
- .debug_info    0x000068da     0x2b2a source/board/HAL/src/bsp_misc_samg55.o
- .debug_info    0x00009404     0x4c79 source/board/HAL/src/chbsp_chirp_samg55.o
- .debug_info    0x0000e07d     0x1ae3 source/board/HAL/src/time_hal.o
- .debug_info    0x0000fb60     0x1774 source/board/sam/boards/samg55_xplained_pro/board_init.o
- .debug_info    0x000112d4     0x1d61 source/board/sam/drivers/adc/adc2.o
- .debug_info    0x00013035     0x106f source/board/sam/drivers/efc/efc.o
- .debug_info    0x000140a4     0x10a7 source/board/sam/drivers/flexcom/flexcom.o
- .debug_info    0x0001514b      0xdc0 source/board/sam/drivers/pdc/pdc.o
- .debug_info    0x00015f0b     0x1a22 source/board/sam/drivers/pio/pio.o
- .debug_info    0x0001792d     0x1759 source/board/sam/drivers/pio/pio_handler.o
- .debug_info    0x00019086     0x1c07 source/board/sam/drivers/pmc/pmc.o
- .debug_info    0x0001ac8d     0x142a source/board/sam/drivers/pmc/sleep.o
- .debug_info    0x0001c0b7      0xca8 source/board/sam/drivers/rtt/rtt.o
- .debug_info    0x0001cd5f      0xe38 source/board/sam/drivers/supc/supc.o
- .debug_info    0x0001db97     0x11f2 source/board/sam/drivers/tc/tc.o
- .debug_info    0x0001ed89     0x1648 source/board/sam/drivers/twi/twi.o
- .debug_info    0x000203d1     0x20ca source/board/sam/drivers/usart/usart.o
- .debug_info    0x0002249b     0x1392 source/board/sam/utils/cmsis/samg/samg55/source/templates/gcc/startup_samg55.o
- .debug_info    0x0002382d      0x53e source/board/sam/utils/cmsis/samg/samg55/source/templates/system_samg55.o
- .debug_info    0x00023d6b      0xdb8 source/board/sam/utils/syscalls/gcc/syscalls.o
- .debug_info    0x00024b23     0x16dc source/drivers/chirpmicro/src/ch201_gprmt.o
- .debug_info    0x000261ff      0xba9 source/drivers/chirpmicro/src/ch201_gprmt_fw.o
- .debug_info    0x00026da8     0x19ec source/drivers/chirpmicro/src/chbsp_dummy.o
- .debug_info    0x00028794     0x2b2a source/drivers/chirpmicro/src/ch_api.o
- .debug_info    0x0002b2be     0x25ee source/drivers/chirpmicro/src/ch_common.o
- .debug_info    0x0002d8ac     0x2b21 source/drivers/chirpmicro/src/ch_driver.o
- .debug_info    0x000303cd      0xb58 source/drivers/chirpmicro/src/ch_math_utils.o
- .debug_info    0x00030f25     0x1d38 source/drivers/inv/inv_i2c.o
- .debug_info    0x00032c5d     0x2297 source/drivers/inv/inv_uart.o
+.debug_info     0x00000000    0x34feb
+ .debug_info    0x00000000     0x2064 source/application/smartsonic-hellochirp-example/main.o
+ .debug_info    0x00002064       0xbb source/utils/src/time.o
+ .debug_info    0x0000211f     0x1372 source/board/common/services/clock/samg/sysclk.o
+ .debug_info    0x00003491      0xa41 source/board/common/services/delay/sam/cycle_counter.o
+ .debug_info    0x00003ed2      0xa8a source/board/common/services/sleepmgr/sam/sleepmgr.o
+ .debug_info    0x0000495c      0xb02 source/board/common/utils/interrupt/interrupt_sam_nvic.o
+ .debug_info    0x0000545e      0xab5 source/board/common/utils/stdio/read.o
+ .debug_info    0x00005f13      0xabe source/board/common/utils/stdio/write.o
+ .debug_info    0x000069d1     0x2b2a source/board/HAL/src/bsp_misc_samg55.o
+ .debug_info    0x000094fb     0x4c79 source/board/HAL/src/chbsp_chirp_samg55.o
+ .debug_info    0x0000e174     0x1ae3 source/board/HAL/src/time_hal.o
+ .debug_info    0x0000fc57     0x1774 source/board/sam/boards/samg55_xplained_pro/board_init.o
+ .debug_info    0x000113cb     0x1d61 source/board/sam/drivers/adc/adc2.o
+ .debug_info    0x0001312c     0x106f source/board/sam/drivers/efc/efc.o
+ .debug_info    0x0001419b     0x10a7 source/board/sam/drivers/flexcom/flexcom.o
+ .debug_info    0x00015242      0xdc0 source/board/sam/drivers/pdc/pdc.o
+ .debug_info    0x00016002     0x1a22 source/board/sam/drivers/pio/pio.o
+ .debug_info    0x00017a24     0x1759 source/board/sam/drivers/pio/pio_handler.o
+ .debug_info    0x0001917d     0x1c07 source/board/sam/drivers/pmc/pmc.o
+ .debug_info    0x0001ad84     0x142a source/board/sam/drivers/pmc/sleep.o
+ .debug_info    0x0001c1ae      0xca8 source/board/sam/drivers/rtt/rtt.o
+ .debug_info    0x0001ce56      0xe38 source/board/sam/drivers/supc/supc.o
+ .debug_info    0x0001dc8e     0x11f2 source/board/sam/drivers/tc/tc.o
+ .debug_info    0x0001ee80     0x1648 source/board/sam/drivers/twi/twi.o
+ .debug_info    0x000204c8     0x20ca source/board/sam/drivers/usart/usart.o
+ .debug_info    0x00022592     0x1392 source/board/sam/utils/cmsis/samg/samg55/source/templates/gcc/startup_samg55.o
+ .debug_info    0x00023924      0x53e source/board/sam/utils/cmsis/samg/samg55/source/templates/system_samg55.o
+ .debug_info    0x00023e62      0xdb8 source/board/sam/utils/syscalls/gcc/syscalls.o
+ .debug_info    0x00024c1a     0x16dc source/drivers/chirpmicro/src/ch201_gprmt.o
+ .debug_info    0x000262f6      0xba9 source/drivers/chirpmicro/src/ch201_gprmt_fw.o
+ .debug_info    0x00026e9f     0x19ec source/drivers/chirpmicro/src/chbsp_dummy.o
+ .debug_info    0x0002888b     0x2b2a source/drivers/chirpmicro/src/ch_api.o
+ .debug_info    0x0002b3b5     0x25ee source/drivers/chirpmicro/src/ch_common.o
+ .debug_info    0x0002d9a3     0x2b21 source/drivers/chirpmicro/src/ch_driver.o
+ .debug_info    0x000304c4      0xb58 source/drivers/chirpmicro/src/ch_math_utils.o
+ .debug_info    0x0003101c     0x1d38 source/drivers/inv/inv_i2c.o
+ .debug_info    0x00032d54     0x2297 source/drivers/inv/inv_uart.o
 
 .debug_abbrev   0x00000000     0x5ccc
  .debug_abbrev  0x00000000      0x2d9 source/application/smartsonic-hellochirp-example/main.o
@@ -3539,119 +3544,119 @@ OUTPUT(smartsonic-hellochirp-example.elf elf32-littlearm)
  .debug_ranges  0x000015f8       0xa8 source/drivers/inv/inv_i2c.o
  .debug_ranges  0x000016a0       0xd8 source/drivers/inv/inv_uart.o
 
-.debug_line     0x00000000     0xd2d7
- .debug_line    0x00000000      0x4f9 source/application/smartsonic-hellochirp-example/main.o
- .debug_line    0x000004f9      0x163 source/utils/src/time.o
- .debug_line    0x0000065c      0x5dd source/board/common/services/clock/samg/sysclk.o
- .debug_line    0x00000c39      0x32b source/board/common/services/delay/sam/cycle_counter.o
- .debug_line    0x00000f64      0x327 source/board/common/services/sleepmgr/sam/sleepmgr.o
- .debug_line    0x0000128b      0x372 source/board/common/utils/interrupt/interrupt_sam_nvic.o
- .debug_line    0x000015fd      0x33b source/board/common/utils/stdio/read.o
- .debug_line    0x00001938      0x338 source/board/common/utils/stdio/write.o
- .debug_line    0x00001c70      0x99b source/board/HAL/src/bsp_misc_samg55.o
- .debug_line    0x0000260b     0x1037 source/board/HAL/src/chbsp_chirp_samg55.o
- .debug_line    0x00003642      0x50f source/board/HAL/src/time_hal.o
- .debug_line    0x00003b51      0x5de source/board/sam/boards/samg55_xplained_pro/board_init.o
- .debug_line    0x0000412f      0x840 source/board/sam/drivers/adc/adc2.o
- .debug_line    0x0000496f      0x54e source/board/sam/drivers/efc/efc.o
- .debug_line    0x00004ebd      0x641 source/board/sam/drivers/flexcom/flexcom.o
- .debug_line    0x000054fe      0x466 source/board/sam/drivers/pdc/pdc.o
- .debug_line    0x00005964      0x6fb source/board/sam/drivers/pio/pio.o
- .debug_line    0x0000605f      0x480 source/board/sam/drivers/pio/pio_handler.o
- .debug_line    0x000064df      0xa38 source/board/sam/drivers/pmc/pmc.o
- .debug_line    0x00006f17      0x4d4 source/board/sam/drivers/pmc/sleep.o
- .debug_line    0x000073eb      0x40a source/board/sam/drivers/rtt/rtt.o
- .debug_line    0x000077f5      0x483 source/board/sam/drivers/supc/supc.o
- .debug_line    0x00007c78      0x4cd source/board/sam/drivers/tc/tc.o
- .debug_line    0x00008145      0x67b source/board/sam/drivers/twi/twi.o
- .debug_line    0x000087c0      0xa25 source/board/sam/drivers/usart/usart.o
- .debug_line    0x000091e5      0x45c source/board/sam/utils/cmsis/samg/samg55/source/templates/gcc/startup_samg55.o
- .debug_line    0x00009641      0x2d9 source/board/sam/utils/cmsis/samg/samg55/source/templates/system_samg55.o
- .debug_line    0x0000991a      0x306 source/board/sam/utils/syscalls/gcc/syscalls.o
- .debug_line    0x00009c20      0x360 source/drivers/chirpmicro/src/ch201_gprmt.o
- .debug_line    0x00009f80      0x33e source/drivers/chirpmicro/src/ch201_gprmt_fw.o
- .debug_line    0x0000a2be      0x466 source/drivers/chirpmicro/src/chbsp_dummy.o
- .debug_line    0x0000a724      0x8a0 source/drivers/chirpmicro/src/ch_api.o
- .debug_line    0x0000afc4      0x742 source/drivers/chirpmicro/src/ch_common.o
- .debug_line    0x0000b706      0x904 source/drivers/chirpmicro/src/ch_driver.o
- .debug_line    0x0000c00a      0x304 source/drivers/chirpmicro/src/ch_math_utils.o
- .debug_line    0x0000c30e      0x6ca source/drivers/inv/inv_i2c.o
- .debug_line    0x0000c9d8      0x8ff source/drivers/inv/inv_uart.o
+.debug_line     0x00000000     0xd3ee
+ .debug_line    0x00000000      0x610 source/application/smartsonic-hellochirp-example/main.o
+ .debug_line    0x00000610      0x163 source/utils/src/time.o
+ .debug_line    0x00000773      0x5dd source/board/common/services/clock/samg/sysclk.o
+ .debug_line    0x00000d50      0x32b source/board/common/services/delay/sam/cycle_counter.o
+ .debug_line    0x0000107b      0x327 source/board/common/services/sleepmgr/sam/sleepmgr.o
+ .debug_line    0x000013a2      0x372 source/board/common/utils/interrupt/interrupt_sam_nvic.o
+ .debug_line    0x00001714      0x33b source/board/common/utils/stdio/read.o
+ .debug_line    0x00001a4f      0x338 source/board/common/utils/stdio/write.o
+ .debug_line    0x00001d87      0x99b source/board/HAL/src/bsp_misc_samg55.o
+ .debug_line    0x00002722     0x1037 source/board/HAL/src/chbsp_chirp_samg55.o
+ .debug_line    0x00003759      0x50f source/board/HAL/src/time_hal.o
+ .debug_line    0x00003c68      0x5de source/board/sam/boards/samg55_xplained_pro/board_init.o
+ .debug_line    0x00004246      0x840 source/board/sam/drivers/adc/adc2.o
+ .debug_line    0x00004a86      0x54e source/board/sam/drivers/efc/efc.o
+ .debug_line    0x00004fd4      0x641 source/board/sam/drivers/flexcom/flexcom.o
+ .debug_line    0x00005615      0x466 source/board/sam/drivers/pdc/pdc.o
+ .debug_line    0x00005a7b      0x6fb source/board/sam/drivers/pio/pio.o
+ .debug_line    0x00006176      0x480 source/board/sam/drivers/pio/pio_handler.o
+ .debug_line    0x000065f6      0xa38 source/board/sam/drivers/pmc/pmc.o
+ .debug_line    0x0000702e      0x4d4 source/board/sam/drivers/pmc/sleep.o
+ .debug_line    0x00007502      0x40a source/board/sam/drivers/rtt/rtt.o
+ .debug_line    0x0000790c      0x483 source/board/sam/drivers/supc/supc.o
+ .debug_line    0x00007d8f      0x4cd source/board/sam/drivers/tc/tc.o
+ .debug_line    0x0000825c      0x67b source/board/sam/drivers/twi/twi.o
+ .debug_line    0x000088d7      0xa25 source/board/sam/drivers/usart/usart.o
+ .debug_line    0x000092fc      0x45c source/board/sam/utils/cmsis/samg/samg55/source/templates/gcc/startup_samg55.o
+ .debug_line    0x00009758      0x2d9 source/board/sam/utils/cmsis/samg/samg55/source/templates/system_samg55.o
+ .debug_line    0x00009a31      0x306 source/board/sam/utils/syscalls/gcc/syscalls.o
+ .debug_line    0x00009d37      0x360 source/drivers/chirpmicro/src/ch201_gprmt.o
+ .debug_line    0x0000a097      0x33e source/drivers/chirpmicro/src/ch201_gprmt_fw.o
+ .debug_line    0x0000a3d5      0x466 source/drivers/chirpmicro/src/chbsp_dummy.o
+ .debug_line    0x0000a83b      0x8a0 source/drivers/chirpmicro/src/ch_api.o
+ .debug_line    0x0000b0db      0x742 source/drivers/chirpmicro/src/ch_common.o
+ .debug_line    0x0000b81d      0x904 source/drivers/chirpmicro/src/ch_driver.o
+ .debug_line    0x0000c121      0x304 source/drivers/chirpmicro/src/ch_math_utils.o
+ .debug_line    0x0000c425      0x6ca source/drivers/inv/inv_i2c.o
+ .debug_line    0x0000caef      0x8ff source/drivers/inv/inv_uart.o
 
-.debug_str      0x00000000     0x75fb
- .debug_str     0x00000000     0x1310 source/application/smartsonic-hellochirp-example/main.o
-                               0x1725 (size before relaxing)
- .debug_str     0x00001310       0x9f source/utils/src/time.o
+.debug_str      0x00000000     0x75e7
+ .debug_str     0x00000000     0x1395 source/application/smartsonic-hellochirp-example/main.o
+                               0x17c0 (size before relaxing)
+ .debug_str     0x00001395       0x85 source/utils/src/time.o
                                 0x22f (size before relaxing)
- .debug_str     0x000013af      0x5c7 source/board/common/services/clock/samg/sysclk.o
+ .debug_str     0x0000141a      0x548 source/board/common/services/clock/samg/sysclk.o
                                 0xbd5 (size before relaxing)
- .debug_str     0x00001976       0x56 source/board/common/services/delay/sam/cycle_counter.o
+ .debug_str     0x00001962       0x56 source/board/common/services/delay/sam/cycle_counter.o
                                 0x6ca (size before relaxing)
- .debug_str     0x000019cc       0xd7 source/board/common/services/sleepmgr/sam/sleepmgr.o
+ .debug_str     0x000019b8       0xd7 source/board/common/services/sleepmgr/sam/sleepmgr.o
                                 0x75d (size before relaxing)
- .debug_str     0x00001aa3       0x9f source/board/common/utils/interrupt/interrupt_sam_nvic.o
+ .debug_str     0x00001a8f       0x9f source/board/common/utils/interrupt/interrupt_sam_nvic.o
                                 0x71a (size before relaxing)
- .debug_str     0x00001b42       0x4a source/board/common/utils/stdio/read.o
+ .debug_str     0x00001b2e       0x4a source/board/common/utils/stdio/read.o
                                 0x6c3 (size before relaxing)
- .debug_str     0x00001b8c       0x39 source/board/common/utils/stdio/write.o
+ .debug_str     0x00001b78       0x39 source/board/common/utils/stdio/write.o
                                 0x6c4 (size before relaxing)
- .debug_str     0x00001bc5      0x78a source/board/HAL/src/bsp_misc_samg55.o
-                               0x1cc9 (size before relaxing)
- .debug_str     0x0000234f     0x10ed source/board/HAL/src/chbsp_chirp_samg55.o
-                               0x2deb (size before relaxing)
- .debug_str     0x0000343c       0x62 source/board/HAL/src/time_hal.o
-                               0x14fc (size before relaxing)
- .debug_str     0x0000349e      0x102 source/board/sam/boards/samg55_xplained_pro/board_init.o
+ .debug_str     0x00001bb1      0x78a source/board/HAL/src/bsp_misc_samg55.o
+                               0x1ca3 (size before relaxing)
+ .debug_str     0x0000233b     0x10ed source/board/HAL/src/chbsp_chirp_samg55.o
+                               0x2dc5 (size before relaxing)
+ .debug_str     0x00003428       0x62 source/board/HAL/src/time_hal.o
+                               0x14d6 (size before relaxing)
+ .debug_str     0x0000348a      0x102 source/board/sam/boards/samg55_xplained_pro/board_init.o
                                 0xba6 (size before relaxing)
- .debug_str     0x000035a0      0x5f9 source/board/sam/drivers/adc/adc2.o
+ .debug_str     0x0000358c      0x5f9 source/board/sam/drivers/adc/adc2.o
                                0x15e2 (size before relaxing)
- .debug_str     0x00003b99      0x20b source/board/sam/drivers/efc/efc.o
+ .debug_str     0x00003b85      0x20b source/board/sam/drivers/efc/efc.o
                                 0x956 (size before relaxing)
- .debug_str     0x00003da4      0x141 source/board/sam/drivers/flexcom/flexcom.o
+ .debug_str     0x00003d90      0x141 source/board/sam/drivers/flexcom/flexcom.o
                                 0x99b (size before relaxing)
- .debug_str     0x00003ee5      0x126 source/board/sam/drivers/pdc/pdc.o
+ .debug_str     0x00003ed1      0x126 source/board/sam/drivers/pdc/pdc.o
                                 0x86b (size before relaxing)
- .debug_str     0x0000400b      0x410 source/board/sam/drivers/pio/pio.o
+ .debug_str     0x00003ff7      0x410 source/board/sam/drivers/pio/pio.o
                                 0xda2 (size before relaxing)
- .debug_str     0x0000441b       0xcb source/board/sam/drivers/pio/pio_handler.o
+ .debug_str     0x00004407       0xcb source/board/sam/drivers/pio/pio_handler.o
                                 0xea0 (size before relaxing)
- .debug_str     0x000044e6      0x5cf source/board/sam/drivers/pmc/pmc.o
+ .debug_str     0x000044d2      0x5cf source/board/sam/drivers/pmc/pmc.o
                                0x104c (size before relaxing)
- .debug_str     0x00004ab5      0x15d source/board/sam/drivers/pmc/sleep.o
+ .debug_str     0x00004aa1      0x15d source/board/sam/drivers/pmc/sleep.o
                                 0xb27 (size before relaxing)
- .debug_str     0x00004c12       0xe4 source/board/sam/drivers/rtt/rtt.o
+ .debug_str     0x00004bfe       0xe4 source/board/sam/drivers/rtt/rtt.o
                                 0x7b5 (size before relaxing)
- .debug_str     0x00004cf6      0x20a source/board/sam/drivers/supc/supc.o
+ .debug_str     0x00004ce2      0x20a source/board/sam/drivers/supc/supc.o
                                 0x90c (size before relaxing)
- .debug_str     0x00004f00      0x159 source/board/sam/drivers/tc/tc.o
+ .debug_str     0x00004eec      0x159 source/board/sam/drivers/tc/tc.o
                                 0x92c (size before relaxing)
- .debug_str     0x00005059      0x2f2 source/board/sam/drivers/twi/twi.o
+ .debug_str     0x00005045      0x2f2 source/board/sam/drivers/twi/twi.o
                                 0xc0c (size before relaxing)
- .debug_str     0x0000534b      0x938 source/board/sam/drivers/usart/usart.o
+ .debug_str     0x00005337      0x938 source/board/sam/drivers/usart/usart.o
                                0x10d0 (size before relaxing)
- .debug_str     0x00005c83      0x603 source/board/sam/utils/cmsis/samg/samg55/source/templates/gcc/startup_samg55.o
+ .debug_str     0x00005c6f      0x603 source/board/sam/utils/cmsis/samg/samg55/source/templates/gcc/startup_samg55.o
                                 0xd8b (size before relaxing)
- .debug_str     0x00006286       0x65 source/board/sam/utils/cmsis/samg/samg55/source/templates/system_samg55.o
+ .debug_str     0x00006272       0x65 source/board/sam/utils/cmsis/samg/samg55/source/templates/system_samg55.o
                                 0x4ca (size before relaxing)
- .debug_str     0x000062eb      0x19c source/board/sam/utils/syscalls/gcc/syscalls.o
+ .debug_str     0x000062d7      0x19c source/board/sam/utils/syscalls/gcc/syscalls.o
                                 0x7cf (size before relaxing)
- .debug_str     0x00006487       0x52 source/drivers/chirpmicro/src/ch201_gprmt.o
-                               0x12a5 (size before relaxing)
- .debug_str     0x000064d9       0xa3 source/drivers/chirpmicro/src/ch201_gprmt_fw.o
-                                0x8c4 (size before relaxing)
- .debug_str     0x0000657c       0xa9 source/drivers/chirpmicro/src/chbsp_dummy.o
-                               0x142a (size before relaxing)
- .debug_str     0x00006625      0x4cf source/drivers/chirpmicro/src/ch_api.o
-                               0x19d4 (size before relaxing)
- .debug_str     0x00006af4      0x5fd source/drivers/chirpmicro/src/ch_common.o
-                               0x194e (size before relaxing)
- .debug_str     0x000070f1      0x272 source/drivers/chirpmicro/src/ch_driver.o
-                               0x1945 (size before relaxing)
- .debug_str     0x00007363       0x56 source/drivers/chirpmicro/src/ch_math_utils.o
+ .debug_str     0x00006473       0x52 source/drivers/chirpmicro/src/ch201_gprmt.o
+                               0x127f (size before relaxing)
+ .debug_str     0x000064c5       0xa3 source/drivers/chirpmicro/src/ch201_gprmt_fw.o
+                                0x89e (size before relaxing)
+ .debug_str     0x00006568       0xa9 source/drivers/chirpmicro/src/chbsp_dummy.o
+                               0x1404 (size before relaxing)
+ .debug_str     0x00006611      0x4cf source/drivers/chirpmicro/src/ch_api.o
+                               0x19ae (size before relaxing)
+ .debug_str     0x00006ae0      0x5fd source/drivers/chirpmicro/src/ch_common.o
+                               0x1928 (size before relaxing)
+ .debug_str     0x000070dd      0x272 source/drivers/chirpmicro/src/ch_driver.o
+                               0x191f (size before relaxing)
+ .debug_str     0x0000734f       0x56 source/drivers/chirpmicro/src/ch_math_utils.o
                                 0x6cc (size before relaxing)
- .debug_str     0x000073b9       0xc1 source/drivers/inv/inv_i2c.o
+ .debug_str     0x000073a5       0xc1 source/drivers/inv/inv_i2c.o
                                0x1148 (size before relaxing)
- .debug_str     0x0000747a      0x181 source/drivers/inv/inv_uart.o
+ .debug_str     0x00007466      0x181 source/drivers/inv/inv_uart.o
                                0x1335 (size before relaxing)
 
 .debug_frame    0x00000000     0x7594
@@ -3824,6 +3829,7 @@ __aeabi_ddiv                                      c:/program files (x86)/atmel/s
                                                   c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-mprec.o)
                                                   c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-dtoa.o)
                                                   source/board/HAL/src/chbsp_chirp_samg55.o
+                                                  source/application/smartsonic-hellochirp-example/main.o
 __aeabi_dmul                                      c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m\libgcc.a(_arm_muldivdf3.o)
                                                   c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-mprec.o)
                                                   c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-dtoa.o)
@@ -3842,6 +3848,7 @@ __aeabi_ui2d                                      c:/program files (x86)/atmel/s
                                                   c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-dtoa.o)
 __aeabi_ul2d                                      c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m\libgcc.a(_arm_addsubdf3.o)
                                                   source/board/HAL/src/chbsp_chirp_samg55.o
+                                                  source/application/smartsonic-hellochirp-example/main.o
 __aeabi_uldivmod                                  c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m\libgcc.a(_aeabi_uldivmod.o)
                                                   source/board/HAL/src/time_hal.o
                                                   source/board/HAL/src/chbsp_chirp_samg55.o
@@ -4979,6 +4986,7 @@ tc_write_rc                                       source/board/sam/drivers/tc/tc
 time_get_in_us                                    source/utils/src/time.o
                                                   source/board/HAL/src/chbsp_chirp_samg55.o
                                                   source/board/HAL/src/bsp_misc_samg55.o
+                                                  source/application/smartsonic-hellochirp-example/main.o
 time_hal_get_in_us                                source/board/HAL/src/time_hal.o
                                                   source/utils/src/time.o
 twi_disable_interrupt                             source/board/sam/drivers/twi/twi.o
